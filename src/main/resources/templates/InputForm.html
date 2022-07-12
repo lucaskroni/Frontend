@@ -3,8 +3,23 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Input Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/style/cssandjs/BttnResources/index.js}"></script>
+    <script type="text/javascript" th:src="@{/style/cssandjs/index.js}"></script>
+    <link rel="stylesheet" th:href="@{/style/cssandjs/BttnResources/style.css}"/>
+    <link rel="stylesheet" th:href="@{/style/cssandjs/style.css}"/>
+
 </head>
 <body>
-
+        <div class="cont_hrd">
+            Ahh Hello there, I guess you want to make a new Template:
+        </div>
+        <div class="cont_bdy">
+            <div>
+                <div th:replace="fragments/bttnFrag :: bttnFrag('Create New')"></div>
+            </div>
+        </div>
 </body>
 </html>

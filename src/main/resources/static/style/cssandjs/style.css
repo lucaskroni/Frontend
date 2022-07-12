@@ -1,0 +1,32 @@
+.cont_hrd{
+    flex-grow: 2;
+    margin: 0.3rem 0.3rem 1.6rem 0.3rem;
+    font-size: 35px;
+    padding: 0.5rem;
+    font-weight: 600;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    padding: 0.5rem;
+    background: #fbfbfb;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+*{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.cont_bdy{
+    flex-grow: 1000;
+    margin: 0.3rem 0.3rem 0.3rem 5rem;
+    font-weight: 400;
+}

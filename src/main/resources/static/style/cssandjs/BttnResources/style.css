@@ -1,0 +1,120 @@
+.bttn{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    display: flex;
+    padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+    background: #8FB77B;
+    border-radius: 10px;
+    outline: transparent 2px solid;
+    border: transparent solid 1px;
+    width: max-content;
+    indent-edge-reset: border-edge;
+}
+
+.noTime *{
+    animation-duration: 0s !important;
+}
+
+#input-bttn{
+    display: none;
+}
+
+#output-bttn{
+    display: none;
+}
+
+#input-bttn:checked + .bttn{
+    animation-name: click;
+    animation-duration: 725ms;
+    animation-timing-function: ease;
+}
+
+#input-bttn + .bttn{
+    animation-name: click2;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+/* In */
+
+@keyframes click {
+    0%   {
+        outline-color: transparent;
+        border-color: transparent;
+        background-image: none;
+    }
+    50%  {
+        outline-color: #84AF6E;
+        border-color: #79A861;
+    }
+    100% {
+        outline-color: transparent;
+        border-color: transparent;
+        background-image: none;
+    }
+}
+
+/* Out */
+
+@keyframes click2 {
+    0%   {
+        outline-color: transparent;
+        border-color: transparent;
+    }
+    50%  {
+        outline-color: #84AF6E;
+        border-color: #79A861;
+    }
+    100% {
+        outline-color: transparent;
+        border-color: transparent;
+    }
+}
+
+
+/*========================================= - Animation: Create new Template - ========================================*/
+
+.ballAnim{
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-name: ball;
+}
+
+.circle{
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: black;
+    transform: translateX(15px);
+}
+
+@keyframes ball {
+    0%{
+        height: 55px;
+        width: 100px;
+        background: black;
+        border-radius: 30%;
+    }
+    15%{
+        transform: scale(95%) translateX(15px);
+        border-radius: 40%;
+    }
+    25%{
+        transform: scale(94%) translateX(15px);
+        border-radius: 50%;
+    }
+    35%{
+        transform: scale(93%) translateX(15px);
+    }
+    75%{
+        transform: scale(91%) translateX(15px);
+    }
+    100%{
+        transform: scale(89%) translateX(15px);
+        animation-play-state: paused;
+    }
+}
+
+
+
+

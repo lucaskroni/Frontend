@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class FormController {
 
     //TODO: We have to build everything up over form elements so yeah lets gooo
+    //TODO: Hello tomorrow me i hope you slept well but yeah today we go on and try to make a form which can read all configs from the User
+    //TODO: Configs are: Company Name, Module with Scopes --> List of strings
+    //TODO: Ma man you got this u a legend come on
     public FormController(){
         new ConfigsReader().readConfig();
     }

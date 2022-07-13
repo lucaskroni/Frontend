@@ -1,3 +1,10 @@
+:root{
+    --bttn_init_h: 0px;
+    --bttn_init_w: 0px;
+    --anim_end_trnX : 0px;
+    --anim_end_trnY : 0px;
+}
+
 .bttn{
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
@@ -8,7 +15,6 @@
     outline: transparent 2px solid;
     border: transparent solid 1px;
     width: max-content;
-    indent-edge-reset: border-edge;
 }
 
 .noTime *{
@@ -25,7 +31,7 @@
 
 #input-bttn:checked + .bttn{
     animation-name: click;
-    animation-duration: 725ms;
+    animation-duration: 250ms;
     animation-timing-function: ease;
 }
 
@@ -75,8 +81,8 @@
 /*========================================= - Animation: Create new Template - ========================================*/
 
 .ballAnim{
-    animation-timing-function: ease;
-    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.4, 0.82, 1.6, 0.66);
+    animation-duration: 0.45s;
     animation-name: ball;
 }
 
@@ -85,35 +91,90 @@
     width: 13px;
     border-radius: 50%;
     background: black;
-    transform: translateX(15px);
+    transform: translateX(var(--anim_end_trnX)) translateY(var(--anim_end_trnY));
 }
 
 @keyframes ball {
     0%{
-        height: 55px;
-        width: 100px;
-        background: black;
-        border-radius: 30%;
+        height: var(--bttn_init_h);
+        width: var(--bttn_init_w);
+        background: #659150;
+        border-radius: 20%;
+    }
+    5%{
+        transform: translateX(1px) translateY(1px);
+    }
+    10%{
+        transform: translateX(5px) translateY(4px);
     }
     15%{
-        transform: scale(95%) translateX(15px);
-        border-radius: 40%;
+        transform: translateX(9px) translateY(8px);
+    }
+    20%{
+        background: #49693A;
+        transform: translateX(14px) translateY(13px);
     }
     25%{
-        transform: scale(94%) translateX(15px);
-        border-radius: 50%;
+        transform: scale(105%) translateX(19px) translateY(18px);
+    }
+    30%{
+        transform: translateX(24px) translateY(23px);
     }
     35%{
-        transform: scale(93%) translateX(15px);
+        transform: translateX(29px) translateY(28px);
+    }
+    40%{
+        background: #2E4224;
+        transform: translateX(34px) translateY(33px);
+    }
+    45%{
+        transform: translateX(39px) translateY(38px);
+    }
+    50%{
+        transform: translateX(44px) translateY(43px);
+    }
+    55%{
+        transform: translateX(49px) translateY(48px);
+    }
+    60%{
+        transform: translateX(54px) translateY(53px);
+    }
+    65%{
+        transform: translateX(59px) translateY(58px);
+    }
+    70%{
+        background: #1C2716;
+        transform: translateX(64px) translateY(63px);
     }
     75%{
-        transform: scale(91%) translateX(15px);
+        transform: scale(95%) translateX(69px) translateY(68px);
+        border-radius: 30%;
+    }
+    80%{
+        background: #1C2815;
+        transform: scale(94%) translateX(74px) translateY(73px);
+        border-radius: 35%;
+    }
+    85%{
+        background: #131B0E;
+        transform: scale(93%) translateX(79px) translateY(78px);
+        border-radius: 40%;
+    }
+    90%{
+        background: #090D07;
+        transform: scale(91%) translateX(84px) translateY(83px);
+        border-radius: 45%;
+    }
+    95%{
+        background: black;
+        transform: scale(90%) translateX(85px) translateY(84px);
+        border-radius: 50%;
     }
     100%{
-        transform: scale(89%) translateX(15px);
-        animation-play-state: paused;
+        transform: scale(89%) translateX(87px) translateY(86px);
     }
 }
+
 
 
 

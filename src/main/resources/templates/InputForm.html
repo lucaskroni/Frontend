@@ -8,17 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
     <script type="text/javascript" th:src="@{/style/cssandjs/BttnResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/index.js}"></script>
+    <script type="text/javascript" th:src="@{style/cssandjs/DDwnResources/index.js}"></script>
     <link rel="stylesheet" th:href="@{/style/cssandjs/BttnResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/style.css}"/>
-
+    <link rel="stylesheet" th:href="@{style/cssandjs/DDwnResources/style.css}"/>
 </head>
-<body>
+<body class="timeout" id="timeOut">
         <div class="cont_hrd">
             Ahh Hello there, I guess you want to make a new Template:
         </div>
         <div class="cont_bdy">
             <div>
-                <div th:replace="fragments/bttnFrag :: bttnFrag('Create New')"></div>
+                <div th:replace="fragments/bttnFrag :: bttnFrag('Create New',true)"></div>
+            </div>
+            <div class="_playgrd" >
+                <canvas id="line-canvas">
+                </canvas>
+                <div class="_content_fld">
+                    <div th:replace="fragments/ddwnFrag :: ddwnFrag('yoo,nah,thats,ass', ${str})"></div>
+                </div>
             </div>
         </div>
 </body>

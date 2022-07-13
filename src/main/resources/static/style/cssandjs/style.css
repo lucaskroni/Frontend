@@ -1,6 +1,6 @@
 .cont_hrd{
     flex-grow: 2;
-    margin: 0.3rem 0.3rem 1.6rem 0.3rem;
+    margin: 0.3rem 0.3rem 1.1rem 0.3rem;
     font-size: 35px;
     padding: 0.5rem;
     font-weight: 600;
@@ -27,6 +27,44 @@ html, body{
 
 .cont_bdy{
     flex-grow: 1000;
-    margin: 0.3rem 0.3rem 0.3rem 5rem;
+    margin: 0.3rem 0.3rem 0.3rem 3rem;
     font-weight: 400;
+}
+
+/*========================================= - Animation: Create the Line when Click - ========================================*/
+
+._playgrd{
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+}
+
+._content_fld{
+    flex-grow: 5;
+    flex-shrink: 0.1;
+}
+
+#line-canvas{
+    flex-grow: 0.1;
+    flex-shrink: 5;
+    width: 10rem;
+}
+
+.timeout{
+    animation-duration: 0s !important;
+}
+
+@keyframes appeare {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 50%;
+    }
+    to{
+        opacity: 100%;
+    }
 }

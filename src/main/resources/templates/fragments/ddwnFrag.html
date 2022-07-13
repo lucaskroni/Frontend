@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Dropdown</title>
+    </head>
+<body>
+    <div th:fragment="ddwnFrag(elements, output)">
+        <select id="_ddwn_slct" th:field="${output}">
+            <option th:each="elem : ${#strings.arraySplit(elements, ',')}" th:value="${elem}" th:text="${elem}">Yoo</option>
+        </select>
+    </div>
+</body>
+</html>

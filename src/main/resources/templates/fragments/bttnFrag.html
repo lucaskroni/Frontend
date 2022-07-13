@@ -10,10 +10,10 @@
     <script type="text/javascript" src="../../static/style/cssandjs/BttnResources/index.js" th:src="@{/style/cssandjs/BttnResources/index.js}"></script>
 </head>
 <body>
-    <div th:fragment="bttnFrag(Text)">
+    <div th:fragment="bttnFrag(Text,condi)">
         <div class="noTime" id="noTime">
             <input type="checkbox" id="input-bttn"/>
-            <label onclick="handlecreateClick()" for="input-bttn" class="bttn" th:text="${Text}">Yo</label>
+            <label id="input-lbl" th:onclick="|handlecreateClick(${condi})|" for="input-bttn" class="bttn" th:text="${Text}">Yo</label>
         </div>
     </div>
 </body>

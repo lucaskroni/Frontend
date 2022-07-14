@@ -19,7 +19,10 @@ public class FormController {
 
     //TODO: We have to build everything up over form elements so yeah lets gooo
     //TODO: Ma man you got this u a legend come on
-
+    //TODO: Schau in das InputForm.html und versuch irgendwie in dem javaScript inline block des so zu lösen das wenn sich das Module von dem Dropdown ändert sich die angeführten Checkboxen auch ändern
+    //TODO: Sonst kannst du auch machen das du pro module eine Reiche von checkboxen machst für die scopes aber nur die viseble machst welche gerade ausgewählt sind hmmm...
+    //TODO: OK do kannst nd in diesem inline Script wos auf th: Vars zuweisen hmm wie geht des
+    //TODO: Guten Morgen ma man nothing is impossible außer thymeleaf na joke u got this everything is possible
     protected ArrayList<Module> inModules;
     protected String inName;
     protected Conv_Output outConvs;
@@ -39,11 +42,6 @@ public class FormController {
     @ModelAttribute("inModuleNames")
     public ArrayList<String> inModuleNames(){
         return (ArrayList<String>) inModules.stream().map(Module::getModule).collect(Collectors.toList());
-    }
-
-    @ModelAttribute("inScopesOFModule")
-    public ArrayList<String> inScopesOFModule(){
-        return inModScopeMap().get(outConvs.TempModule);
     }
 
     @ModelAttribute("inModScopeMap")

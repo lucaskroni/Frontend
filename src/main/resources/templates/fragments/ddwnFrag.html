@@ -4,10 +4,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Dropdown</title>
+    <script type="text/javascript" src="../../static/style/cssandjs/DDwnResources/index.js" th:src="@{/style/cssandjs/DDwnResources/index.js}"></script>
+    <link rel="stylesheet" href="../../static/style/cssandjs/DDwnResources/style.css" th:href="@{/style/cssandjs/DDwnResources/style.css}"/>
     </head>
 <body>
     <div th:fragment="ddwnFrag(elements)">
-        <select th:field="*{TempModule}" id="_ddwn_slct">
+        <select th:field="*{TempModule}" id="slct_modules">
             <option th:each="elem : ${elements}" th:value="${elem}" th:text="${elem}">Yoo</option>
         </select>
     </div>

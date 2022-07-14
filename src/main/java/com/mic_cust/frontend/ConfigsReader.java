@@ -10,11 +10,11 @@ import java.util.Arrays;
 
 public class ConfigsReader {
 
-    protected final String _PTH = "..\\..\\..\\..\\resources\\static\\Data\\configs.json";
+    protected final String _PTH = "src\\main\\resources\\Data\\configs.json";
 
     public void readConfig(){
         StringBuilder bob = new StringBuilder();
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(_PTH))))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(new File(_PTH).getAbsolutePath()))) {
             while(reader.ready()){
                 bob.append(reader.readLine());
             }

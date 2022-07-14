@@ -74,9 +74,7 @@ deactivateActions = () => {
     //I Deactivate the default submit event on the form
     let inputs = document.getElementsByTagName("input")
     for (let i = 0; i < inputs.length; i++) {
-        console.log("Yooo");
         inputs[i].addEventListener("keypress", (e) => {
-            console.log("nah man")
             let code = e.key
             if (code === "Enter") {
                 e.preventDefault()

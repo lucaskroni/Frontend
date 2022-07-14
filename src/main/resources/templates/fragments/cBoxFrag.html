@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Checkbox</title>
+    <link rel="stylesheet" href="../../static/style/cssandjs/cBoxResources/style.css" th:href="@{style/cssandjs/cBoxResources/style.css}"/>
+    <script type="text/javascript" src="../../static/style/cssandjs/cBoxResources/index.js" th:src="@{style/cssandjs/cBoxResources/index.js}"></script>
+</head>
+<body>
+    <div th:fragment="cBoxFrag(lblText, scopes, index)">
+        <input type="checkbox" th:field="*{scopes[index]}">
+    </div>
+</body>
+</html>

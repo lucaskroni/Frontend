@@ -3,9 +3,6 @@ package com.mic_cust.frontend;
 import com.mic_cust.frontend.Data.Module;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public enum Configs {
     NAME(""),

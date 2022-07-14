@@ -1,0 +1,134 @@
+[
+  {
+    "module": "MIC CCS",
+    "scopes": [
+      "Basic Setup",
+      "Basic Setup Part Master"
+    ]
+  },
+  {
+    "module": "MIC CCS CTC",
+    "scopes": [
+      "Per Country"
+    ]
+  },
+  {
+    "module": "MIC DPS",
+    "scopes": [
+      "Denied Party Screening"
+    ]
+  },
+  {
+    "module": "MIC ECM",
+    "scopes": [
+      "Basic Setup",
+      "Per Regime",
+      "Rollout per Location"
+    ]
+  },
+  {
+    "module": "MIC CCS ECC",
+    "scopes": [
+      "Per Regime"
+    ]
+  },
+  {
+    "module": "MIC OCS",
+    "scopes": [
+      "Basic Setup",
+      "Per FTA Bundle",
+      "Per FTA",
+      "Rollout per Region",
+      "Rollout per Location"
+    ]
+  },
+  {
+    "module": "MIC OCS SCS",
+    "scopes": [
+      "Supply Chain Solicitation"
+    ]
+  },
+  {
+    "module": "MIC OCS CALC",
+    "scopes": [
+      "Origin Calculation"
+    ]
+  },
+  {
+    "module": "MIC-CUST",
+    "scopes": [
+      "Basic Setup",
+      "Stocks per Proc.&Ctry",
+      "Rollout per Location"
+    ]
+  },
+  {
+    "module": "MIC-CUST Import",
+    "scopes": [
+      "per Country",
+      "DE",
+      "HU",
+      "BE",
+      "NL",
+      "US"
+    ]
+  },
+  {
+    "module": "MIC-CUST Export",
+    "scopes": [
+      "per Country"
+    ]
+  },
+  {
+    "module": "MIC-CUST GTDC",
+    "scopes": [
+      "Global Trade Data Chain"
+    ]
+  },
+  {
+    "module": "MIC-CUST GUM",
+    "scopes": [
+      "Guarantee Management"
+    ]
+  },
+  {
+    "module": "MIC INTRA",
+    "scopes": [
+      "Basic Setup",
+      "Per Country",
+      "Rollout per Location"
+    ]
+  },
+  {
+    "module": "MIC INTRA CONVERT",
+    "scopes": [
+      "Per Country"
+    ]
+  },
+  {
+    "module": "MIC EMCS",
+    "scopes": [
+      "Basic Setup",
+      "Per Country"
+    ]
+  },
+  {
+    "module": "MIC Data Analytics",
+    "scopes": [
+      "Basic Setup",
+      "Per Dataset"
+    ]
+  },
+  {
+    "module": "MIC SAP",
+    "scopes": [
+      "Per MIC SAP Interface"
+    ]
+  },
+  {
+    "module": "MIC SaaS",
+    "scopes": [
+      "General Tasks SaaS"
+    ]
+  }
+]

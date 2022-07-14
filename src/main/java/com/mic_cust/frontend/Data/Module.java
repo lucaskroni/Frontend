@@ -1,33 +1,45 @@
 package com.mic_cust.frontend.Data;
 
-import java.util.List;
-import java.util.Map;
+import lombok.ToString;
 
-public class Module {
+import java.io.Serializable;
 
-    public String Module;
-    public List<String> Scopes;
+@ToString
+public class Module implements Serializable {
 
-    public Module(String mod, List<String> scopes){
-        this.Module = mod;
-        this.Scopes = scopes;
+    public String module;
+    public String[] scopes;
+
+    public Module(String mod, String[] scopes){
+        this.module = mod;
+        this.scopes = scopes;
     }
 
     public Module(){}
 
-    public List<String> getScopes() {
-        return Scopes;
+    public String[] getScopes() {
+        return scopes;
     }
 
-    public void setScopes(List<String> scopes) {
-        Scopes = scopes;
+    public void setScopes(String[] scopes) {
+        this.scopes = scopes;
     }
 
     public String getModule() {
-        return Module;
+        return module;
     }
 
     public void setModule(String module) {
-        Module = module;
+        this.module = module;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

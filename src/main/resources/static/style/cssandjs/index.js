@@ -70,10 +70,27 @@ setObservers = () => {
     resizeObs.observe(document.getElementById("line-canvas"))
 }
 
+deactivateActions = () => {
+    //I Deactivate the default submit event on the form
+    let inputs = document.getElementsByTagName("input")
+    for (let i = 0; i < inputs.length; i++) {
+        console.log("Yooo");
+        inputs[i].addEventListener("keypress", (e) => {
+            console.log("nah man")
+            let code = e.key
+            if (code === "Enter") {
+                e.preventDefault()
+                return false
+            }
+        })
+    }
+}
+
 setup = () => {
     prevBodyHeight = document.getElementById('line-canvas').clientHeight
     document.getElementById('timeOut').className = "" //Prevent startup Animations
     setListeners()
     setObservers()
+    deactivateActions()
 }
 setTimeout(setup, 500)

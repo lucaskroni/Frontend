@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Text Input</title>
+  <link rel="stylesheet" th:href="@{style/cssandjs/TxInResources/style.css}" href="../../static/style/cssandjs/TxInResources/style.css"/>
+  <script type="text/javascript" th:src="@{style/cssandjs/TxInResources/index.js}" src="../../static/style/cssandjs/TxInResources/index.js"></script>
+</head>
+<body>
+    <div th:fragment="txInFrag(inVal, lblTxt)">
+        <span class="lbl_spn"><label th:for="${#ids.next('input')}" th:text="${lblTxt}">Na man wiiiierd</label>:</span></br>
+        <input id="input" type="text" th:field=" *{CompName}" th:value="${inVal}">
+    </div>
+</body>
+</html>

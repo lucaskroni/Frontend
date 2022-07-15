@@ -1,5 +1,6 @@
 package com.mic_cust.frontend.Data;
 
+import com.mic_cust.frontend.Configs;
 import lombok.*;
 import org.yaml.snakeyaml.constructor.Construct;
 
@@ -17,7 +18,7 @@ public class Conv_Output implements Serializable {
     public String CompName;
 
     public String TempModule;
-    public String TempScope;
+    public String[] TempScope;
 
     public void createJsonConfig(){
         //Create JSON Config for the Java-App
@@ -29,11 +30,6 @@ public class Conv_Output implements Serializable {
         }else{
             ModScopes.put(tempModule, new ArrayList<>(Collections.singletonList(tempScope)));
         }
-    }
-
-    public void setTempScope(String tempScope){
-        this.TempScope = tempScope;
-        add(TempModule, TempScope);
     }
 }
 

@@ -16,7 +16,7 @@ function handlecreateClick(condi){
             document.documentElement.style.setProperty("--anim_end_trnY", "78px")
             document.documentElement.style.setProperty("--anim_end_trnX", "79px")
         })
-        elem.id = "circle"
+        elem.id = "noTime"
     }
 }
 

@@ -5,10 +5,9 @@ let prevBodyHeight //I know its a let but yeah for me its a constant :(
 appeare = () => { //Makes stuff appeare :)
     const cvs = document.getElementById('line-canvas')
     const cvs_cntx = cvs.getContext('2d')
-    const circle = document.getElementById('circle')
-    const addY = 0
-    const addX = 0
-
+    const circle = document.getElementById('noTime')
+    const bttnDiv = document.getElementById('bttn-div')
+    bttnDiv.style.transform = 'translateX(79px), translateY(78px)'
 
     const fromY = (document.body.getBoundingClientRect().top - circle.getBoundingClientRect().top)
     const fromX = (circle.getBoundingClientRect().left - document.body.getBoundingClientRect().left)
@@ -84,7 +83,7 @@ deactivateActions = () => {
     }
 }
 
-setup = () => {
+const setup = () => {
     prevBodyHeight = document.getElementById('line-canvas').clientHeight
     document.getElementById('timeOut').className = "" //Prevent startup Animations
     setListeners()

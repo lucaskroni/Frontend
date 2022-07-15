@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../../static/style/cssandjs/DDwnResources/style.css" th:href="@{/style/cssandjs/DDwnResources/style.css}"/>
     </head>
 <body>
-    <div th:fragment="ddwnFrag(elements)">
-        <select th:field="*{TempModule}" id="slct_modules">
+    <div th:fragment="ddwnFrag(elements, map)">
+        <select th:data-map="${map}" th:field="*{TempModule}" id="slct_modules" >
             <option th:each="elem : ${elements}" th:value="${elem}" th:text="${elem}">Yoo</option>
         </select>
     </div>

@@ -22,7 +22,7 @@
             Ahh Hello there, I guess you want to make a new Template:
         </div>
         <div class="cont_bdy">
-            <div>
+            <div >
                 <div th:replace="~{fragments/bttnFrag :: bttnFrag('Create New',true)}"></div>
             </div>
             <div class="_playgrd" >
@@ -32,18 +32,10 @@
                     <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1><!-- This is only Temporary please delete later and add to css maybe or style better -->
                     <form id="input-form" th:object="${outVal_conv}" th:action="@{/form}" method="post">
                         <div th:replace="~{fragments/txInFrag :: txInFrag('Text in the thingy','This is indeed sick')}"></div>
-                        <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames})}">
+                        <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
                         </div>
-                        <script th:with="module = ''" th:inline="javascript">
-                            /*<![CDATA[*/
-                                let slct = document.getElementById('slct_modules');
-                                slct.addEventListener('change', () => {
-                                    [[${module}]] = slct.getAttribute("value");
-                                });
-                            /*]]>*/
-                        </script>
-                        <div th:each="item , itemstat : ${inModScopeMap.get(module)}">
-                            <div th:replace="~{fragments/cBoxFrag :: cBoxFrag()}"></div>
+                        <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
+                            <div th:replace="fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})"></div>
                         </div>
                     </form>
                 </div>

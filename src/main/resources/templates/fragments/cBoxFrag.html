@@ -9,7 +9,7 @@
 <body>
     <div th:fragment="cBoxFrag(lblText, index)">
         <div th:id="|cbox${index}|" hidden>
-            <input id="cbox" th:value="${lblText.split(':')[1]}" type="checkbox" th:field="*{TempScope[__${index}__]}">
+            <input id="cbox" th:value="${lblText}" type="checkbox" th:field="*{TempScopeMod[__${index}__]}">
             <label for="cbox" th:data-module="${lblText.split(':')[0]}" th:id="|cboxlbl${index}|" th:text="${lblText.split(':')[1]}">
             </label>
         </div>

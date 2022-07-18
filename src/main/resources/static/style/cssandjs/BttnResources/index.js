@@ -1,5 +1,7 @@
 setTimeout(function(){
-    document.getElementById("noTime").className="";
+    const what = document.getElementById("noTime_nor")
+    what.className = ""
+    console.log(what.className)
 },500);
 
 function handlecreateClick(condi){
@@ -17,6 +19,15 @@ function handlecreateClick(condi){
             document.documentElement.style.setProperty("--anim_end_trnX", "79px")
         })
         elem.id = "noTime"
+    }else{
+        //Submit the data
+        const elem = document.getElementById("noTime")
+        if(elem.className === ''){
+            elem.className = "NoListen"
+        }
+        if(document.getElementById('input').value !== "" && document.getElementById('input').value !== null){
+            document.getElementById('input-form').submit()
+        }
     }
 }
 

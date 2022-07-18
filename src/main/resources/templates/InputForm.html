@@ -29,7 +29,7 @@
                 <canvas id="line-canvas">
                 </canvas>
                 <div class="_content_fld">
-                    <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1><!-- This is only Temporary please delete later and add to css maybe or style better -->
+                    <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1> <!-- This is only Temporary please delete later and add to css maybe or style better -->
                     <form id="input-form" th:object="${outVal_conv}" th:action="@{/form}" method="post">
                         <div th:replace="~{fragments/txInFrag :: txInFrag('Text in the thingy','This is indeed sick')}"></div>
                         <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
@@ -38,6 +38,9 @@
                             <div th:replace="fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})"></div>
                         </div>
                     </form>
+                </div>
+                <div class="cont_ftr">
+                    <div th:replace="~{fragments/bttnFrag :: bttnFrag('Finish',false)}"></div>
                 </div>
             </div>
         </div>

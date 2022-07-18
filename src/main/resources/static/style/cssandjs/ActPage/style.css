@@ -1,0 +1,54 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.txt_lbls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#mgc_lbl{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 72px;
+}
+
+#bliker{
+    animation-name: blicker;
+    animation-duration: 340ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 72px;
+}
+
+.svg_image{
+    background-image: url("Conv_SVG.svg");
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 500px;
+}
+
+@keyframes blicker {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    75%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}

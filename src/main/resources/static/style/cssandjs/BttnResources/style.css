@@ -21,7 +21,11 @@
     animation-duration: 0s !important;
 }
 
-#input-bttn{
+#input_bttn{
+    display: none;
+}
+
+#input_bttn_nor{
     display: none;
 }
 
@@ -29,17 +33,31 @@
     display: none;
 }
 
-#input-bttn:checked + .bttn{
+#input_bttn:checked + .bttn{
     animation-name: click;
     animation-duration: 250ms;
     animation-timing-function: ease;
 }
 
-#input-bttn + .bttn{
+#input_bttn + .bttn{
     animation-name: click2;
     animation-duration: 250ms;
     animation-timing-function: ease;
 }
+
+.input_bttn_nor:checked + .bttn{
+    animation-name: click;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+.input_bttn_nor + .bttn{
+    animation-name: click2;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+
 
 /* In */
 

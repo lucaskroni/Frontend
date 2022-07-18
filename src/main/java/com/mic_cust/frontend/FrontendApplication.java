@@ -17,7 +17,7 @@ public class FrontendApplication {
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver(context);
         resolver.setCacheable(false);
 
-        this.templateEngine =new TemplateEngine();
+        this.templateEngine = new TemplateEngine();
         this.templateEngine.setTemplateResolver(resolver);
     }
 

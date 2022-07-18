@@ -61,7 +61,9 @@ resizeBody = () => {
 
 setListeners = () => {
     const circle = document.getElementById("noTime")
-    circle.addEventListener("animationend", appeare)
+    if(circle.className !== "NoListen"){
+        circle.addEventListener("animationend", appeare)
+    }
 }
 
 setObservers = () => {

@@ -31,6 +31,15 @@ html, body{
     font-weight: 400;
 }
 
+.cont_ftr{
+    flex-grow: 5;
+    margin: 0.3rem 5rem 5rem 3rem;
+    font-weight: 400;
+    justify-content: flex-end;
+    display: flex;
+    align-items: flex-end;
+}
+
 /*========================================= - Animation: Create the Line when Click - ========================================*/
 
 ._playgrd{

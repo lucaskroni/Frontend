@@ -18,9 +18,6 @@ import java.util.stream.Collectors;
 public class FormController {
 
     //TODO: We have to build everything up over form elements so yeah lets gooo
-    //TODO: Ma man you got this u a legend come on
-    //TODO: OK next time is the fun or eehh rather fun part of the styling at or even earlier we make the config-Json that goes in the "Backend" (which I don't really see as a Backend) and does great thing
-    //TODO: Yoo have a good start in the week ma man you got this and yo you have to keep training (consistence and yeah also dont lay in bed before everything is done AMEN)
 
     protected ArrayList<Module> inModules;
     protected String inName;
@@ -70,7 +67,7 @@ public class FormController {
 
     @PostMapping("/form")
     public String saveConfigs(@ModelAttribute("outVal_conv") Conv_Output out, Model mdl){
-        mdl.addAttribute("outPut", out);
+        new ConfigsWriter().buildConfigs(out);
         return "actPage";
     }
 }

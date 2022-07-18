@@ -5,15 +5,15 @@ import com.mic_cust.frontend.Data.Module;
 import java.util.ArrayList;
 
 public enum Configs {
-    NAME(""),
+    NAME(""), //Useless but idk maybe someone need it someday
     MOD_SCOPES(new ArrayList<Module>());
 
-    public String name;
+    public String name; //Eh yeah that is a Karl der Komplitze von Useless
     public ArrayList<Module> modScopes;
 
     private Configs(String name){
         this.name = name;
-    }
+    } //OMG DJ Another Khaled
 
     private Configs(ArrayList<Module> modScopes){
         this.modScopes = modScopes;
@@ -25,7 +25,7 @@ public enum Configs {
 
     public String getName() {
         return name;
-    }
+    } //What nah that must be veryyyyyy Useless
 
     public void setModScopes(ArrayList<Module> modScopes) {
         this.modScopes = modScopes;
@@ -33,5 +33,5 @@ public enum Configs {
 
     public void setName(String name) {
         this.name = name;
-    }
+    } //I only see useless here
 }

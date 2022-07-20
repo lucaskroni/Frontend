@@ -1,0 +1,12 @@
+.dropArea{
+    width: max-content;
+    padding: 0 2rem 0 2rem;
+    height: 250px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: dashed;
+    border-width: 3px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

@@ -11,11 +11,15 @@
     <script type="text/javascript" th:src="@{/style/cssandjs/cBoxResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/DDwnResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/TxInResources/index.js}"></script>
+    <script type="text/javascript" th:src="@{style/cssandjs/FileResources/index.js}"></script>
+    <script type="text/javascript" th:src="@{style/cssandjs/RdioResources/index.js}"></script>
     <link rel="stylesheet" th:href="@{/style/cssandjs/BttnResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/DDwnResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/TxInResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/cBoxResources/style.css}"/>
+    <link rel="stylesheet" th:href="@{style/cssandjs/FileResources/style.css}">
+    <link rel="stylesheet" th:href="@{style/cssandjs/RdioResources/style.css}">
 </head>
 <body class="timeout" id="timeOut">
         <div class="cont_hrd">
@@ -30,12 +34,20 @@
                 </canvas>
                 <div class="_content_fld">
                     <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1> <!-- This is only Temporary please delete later and add to css maybe or style better -->
-                    <form id="input-form" th:object="${outVal_conv}" th:action="@{/form}" method="post">
-                        <div th:replace="~{fragments/txInFrag :: txInFrag('Text in the thingy','This is indeed sick')}"></div>
+                    <form id="input-form" th:object="${outConvs}" th:action="@{/form}" method="POST">
+                        <div th:replace="~{fragments/txInFrag :: txInFrag('','Enter Company-Name','Company')}"></div>
+                        <div th:replace="~{fragments/txInFrag :: txInFrag('', 'Enter Title of Offer','Title')}"></div>
+                        <hr>
                         <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
                         </div>
                         <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
-                            <div th:replace="fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})"></div>
+                            <div th:replace="~{fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})}"></div>
+                        </div>
+                        <hr>
+                        <div class="_radioBttns">
+                            <div th:each="item, itemStat : ${quotations}" id="radioFactory">
+                                <div th:replace="~{fragments/rdioFrag :: rdioFrag(${item},${itemStat.index},'quotationBttns')}"></div>
+                            </div>
                         </div>
                     </form>
                 </div>

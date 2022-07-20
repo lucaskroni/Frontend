@@ -7,9 +7,12 @@
   <script type="text/javascript" th:src="@{style/cssandjs/TxInResources/index.js}" src="../../static/style/cssandjs/TxInResources/index.js"></script>
 </head>
 <body>
-    <div th:fragment="txInFrag(inVal, lblTxt)">
+    <div th:fragment="txInFrag(inVal, lblTxt, switcher)">
         <span class="lbl_spn"><label th:for="${#ids.next('input')}" th:text="${lblTxt}">Na man wiiiierd</label>:</span></br>
-        <input id="input" type="text" th:field=" *{CompName}" th:value="${inVal}">
+        <span th:switch="${switcher}">
+            <input th:case="${'Company'}" type="text" th:field="*{CompName}" th:value="${inVal}" th:text="${inVal}" id="input">
+            <input th:case="${'Title'}" type="text" th:field="*{Title}" th:value="${inVal}" th:text="${inVal}" id="input">
+        </span>
     </div>
 </body>
 </html>

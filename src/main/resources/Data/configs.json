@@ -1,4 +1,12 @@
-[
+{
+  "configs":{
+    "Splitter": ":",
+    "Quotation_Types": [
+      "Quotation",
+      "Cost Estimation"
+    ]
+  },
+"ModulesScopes": [
   {
     "module": "MIC CCS",
     "scopes": [
@@ -132,3 +140,4 @@
     ]
   }
 ]
+}

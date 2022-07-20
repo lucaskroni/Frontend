@@ -1,7 +1,10 @@
 {
   "Filter_Replacements": {
-    "Company_Replacement": ""
+    "Company_Replacement": "",
+    "Title_Replacement": "",
+    "Quotation_Replacement": ""
   },
-  "Selected_ModuleScopes": [],
+  "Selected_ModuleScopes": [
+  ],
   "Selected_Array_Splitter": ""
 }

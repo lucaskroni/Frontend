@@ -5,17 +5,30 @@ import com.mic_cust.frontend.Data.Module;
 import java.util.ArrayList;
 
 public enum Configs {
-    NAME(""), //Useless but idk maybe someone need it someday
+    //Configs
+    SPLITTER(""),
+
+    QUOTATIONS(new String[0]),
+    //Module & Scopes
     MOD_SCOPES(new ArrayList<Module>());
 
-    public String name; //Eh yeah that is a Karl der Komplitze von Useless
+    //Configs
+    public String splitter;
+
+    public String[] Quotations;
+
+    //Module & Scopes
     public ArrayList<Module> modScopes;
 
-    private Configs(String name){
-        this.name = name;
-    } //OMG DJ Another Khaled
+    private Configs(String splitter) {
+        this.splitter = splitter;
+    }
 
-    private Configs(ArrayList<Module> modScopes){
+    private Configs(String[] quotations) {
+        this.Quotations = quotations;
+    }
+
+    private Configs(ArrayList<Module> modScopes) {
         this.modScopes = modScopes;
     }
 
@@ -23,15 +36,24 @@ public enum Configs {
         return modScopes;
     }
 
-    public String getName() {
-        return name;
-    } //What nah that must be veryyyyyy Useless
+    public String getSplitter() {
+        return splitter;
+    }
 
     public void setModScopes(ArrayList<Module> modScopes) {
         this.modScopes = modScopes;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    } //I only see useless here
+    public void setSplitter(String splitter) {
+        this.splitter = splitter;
+    }
+
+    public void setQuotations(String[] quotations) {
+        Quotations = quotations;
+    }
+
+    public String[] getQuotations() {
+        return Quotations;
+    }
 }
+

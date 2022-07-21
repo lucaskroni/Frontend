@@ -3,6 +3,7 @@ package com.mic_cust.frontend;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mic_cust.frontend.Data.Conv_Output;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -54,6 +55,7 @@ public class ConfigsWriter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public String createJSONStr(Conv_Output output){

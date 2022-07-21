@@ -7,9 +7,13 @@
     <script type="text/javascript" src="../../static/style/cssandjs/FileResources/index.js" th:src="@{style/cssandjs/FileResources/index.js}"></script>
 </head>
 <body>
-    <div th:fragment="fileFrag(textVal)">
-        <input id="filePath" type="text" th:field="">
-        <input id="fileDirClicker" type="file" multiple value="C:\noPath"/>
+    <div th:fragment="fileFrag(textVal, switcher)">
+        <label th:text="${textVal}"></label><br>
+        <span th:switch="${switcher}">
+            <input th:case="excelOut" id="filePath" type="text" th:field="*{Pth_ExcelOut}">
+            <input th:case="estimation" id="filePath" type="text" th:field="*{Pth_Estimation}">
+            <input th:case="statics" id="filePath" type="text" th:field="*{Pth_Statics}">
+        </span>
     </div>
 </body>
 </html>

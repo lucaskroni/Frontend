@@ -85,11 +85,11 @@ deactivateActions = () => {
     }
 }
 
-const setup = () => {
+const setupMain = () => {
     prevBodyHeight = document.getElementById('line-canvas').clientHeight
     document.getElementById('timeOut').className = "" //Prevent startup Animations
     setListeners()
     setObservers()
     deactivateActions()
 }
-setTimeout(setup, 500)
+setTimeout(setupMain, 500)

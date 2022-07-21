@@ -77,3 +77,10 @@ html, body{
         opacity: 100%;
     }
 }
+
+.optionals{
+    margin-top: 3.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}

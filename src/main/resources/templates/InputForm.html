@@ -35,19 +35,26 @@
                 <div class="_content_fld">
                     <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1> <!-- This is only Temporary please delete later and add to css maybe or style better -->
                     <form id="input-form" th:object="${outConvs}" th:action="@{/form}" method="POST">
-                        <div th:replace="~{fragments/txInFrag :: txInFrag('','Enter Company-Name','Company')}"></div>
-                        <div th:replace="~{fragments/txInFrag :: txInFrag('', 'Enter Title of Offer','Title')}"></div>
-                        <hr>
-                        <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
-                        </div>
-                        <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
-                            <div th:replace="~{fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})}"></div>
-                        </div>
-                        <hr>
-                        <div class="_radioBttns">
-                            <div th:each="item, itemStat : ${quotations}" id="radioFactory">
-                                <div th:replace="~{fragments/rdioFrag :: rdioFrag(${item},${itemStat.index},'quotationBttns')}"></div>
+                        <div class="mains">
+                            <div th:replace="~{fragments/txInFrag :: txInFrag('','Who is that Company called','Company')}"></div>
+                            <div th:replace="~{fragments/txInFrag :: txInFrag('', 'Hmm how should you call it','Title')}"></div>
+                            <hr>
+                            <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
                             </div>
+                            <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
+                                <div th:replace="~{fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})}"></div>
+                            </div>
+                            <hr>
+                            <div class="_radioBttns">
+                                <div th:each="item, itemStat : ${quotations}" id="radioFactory">
+                                    <div th:replace="~{fragments/rdioFrag :: rdioFrag(${item},${itemStat.index},'quotationBttns')}"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="optionals">
+                            <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Optional Inputs:</h1>
+                            <div th:replace="~{fragments/fileFrag :: fileFrag('Where is the Estimation-File', 'estimation')}"></div>
+                            <div th:replace="~{fragments/fileFrag :: fileFrag('And where is the Statics-File', 'statics')}"></div>
                         </div>
                     </form>
                 </div>

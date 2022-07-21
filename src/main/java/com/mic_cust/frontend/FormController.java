@@ -22,9 +22,6 @@ import java.util.stream.Collectors;
 public class FormController {
 
     //TODO: We have to build everything up over form elements so yeah lets gooo
-    //TODO: Look at how to get the path out of the File-Input
-    //TODO: My man you got this oh yeah and have a nice day
-    //TODO: Also i hope you know failure is not the end but my man no bed laying before the training and bath dummy :)
 
 
     protected ArrayList<Module> inModules;

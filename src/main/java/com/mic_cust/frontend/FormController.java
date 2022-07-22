@@ -22,8 +22,6 @@ import java.util.stream.Collectors;
 public class FormController {
 
     //TODO: We have to build everything up over form elements so yeah lets gooo
-
-
     protected ArrayList<Module> inModules;
     protected Conv_Output outConvs;
     protected LocalDateTime lastLoad = null;

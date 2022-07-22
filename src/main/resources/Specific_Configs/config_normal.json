@@ -1,0 +1,19 @@
+{
+  "Header_Cols": "5",
+  "Static-Rows": {
+    "Services": ["Professional Services","","Effort in Days","Rate","Costs EUR"],
+    "Services_Total": ["Total Professional Services"],
+    "Licenses": ["Licenses","","List Price","","Costs EUR"],
+    "Licenses_Total": ["Total Licenses"],
+    "Travel": ["Travel Expenses (Estimation)", "", "Amount", "Rate" ,"Costs EUR"],
+    "Travel_Total": ["Total Travel Expenses"]
+  },
+  "Static-Scopes": {
+    "Senior_Mng_Pcg": "5.0",
+    "Project_Mng_Pcg": "20.0",
+    "Rows_Senior_Mng": ["Senior management", "approx. <SenPcg>% of man-days of the project"],
+    "Rows_Project_Mng": ["Project management and project documentation", "approx. <ProjPcg>% of man-days of the project"]
+  },
+  "Trip_Info_Text": " trips estimated",
+  "Main_Header_Info_Text": "<company> Proposal for "
+}

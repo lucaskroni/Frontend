@@ -16,13 +16,12 @@ public class Conv_Output implements Serializable {
     public String CompName;
     public String Quotation;
     public String Title;
+    public int Maintenance;
+    public int Duration;
     //Other Selectables:
     public String[] TempScopeMod;
     public String Pth_ExcelOut;
     //-----> Optional Output
-    //Replaceable:
-    public String Maintenance;
-    public String Duration;
     //Paths:
     public String Pth_Estimation;
     public String Pth_Statics;

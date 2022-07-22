@@ -1,0 +1,78 @@
+{
+  "Colors": {
+    "SecondPlai_Color": ["225","233","237"],
+    "HeadingColor_Section": ["194","211","220"],
+    "HeadingColor": ["164","189","202"],
+    "Sum_Total_Color": ["149","178","194"],
+    "Sum_Sec_Heading_Color": ["114","177","83"],
+    "Sum_Fee_Volume_Color" : ["225","233","237"],
+    "Sum_Part_Table_Header_Color" : ["103","145","167"],
+    "Sum_Part_Table_Header_Color_2": ["118","156","176"]
+  },
+  "Indentions": {
+    "Indention" : "1"
+  },
+  "Table-Names" : {
+    "Main_Tab_Name" : "Tabelle1",
+    "Roles_Name" : "Roles",
+    "Phases_Name" : "Phases",
+    "Module_Name" : "Modules",
+    "Footnote_Name" : "Footnotes"
+  },
+  "TypeOffset" : "1",
+  "Borderstyle" : "THIN",
+  "Filler": "",
+  "Filler_Height_INPIX" : "9",
+  "Filters": {
+    "Filter_Company" : "<company>",
+    "Filter_Date" : "<Month XXth 2019>",
+    "Filter_Date_Pattern": "MMMM dd'th' YYYY",
+    "Filter_Sen_Man" : "<Senior>",
+    "Filter_Proj_Man" : "<Project>",
+    "Filter_Dev_Eng" : "<Developer>",
+    "Filter_Trainer" : "<Trainer>",
+    "Filter_Title": "<Title>",
+    "Filter_Quotation": "<Quotation>",
+    "Filter_Maintenance": "<Maintenance>",
+    "Filter_Duration": "<Duration>",
+    "Filter_SenPcg": "<SenPcg>",
+    "Filter_ProjPcg": "<ProjPcg>"
+  },
+  "Paths": {
+    "Path_Logo" : "src\\main\\resources\\Logo.jpg",
+    "Path_Excel" : "src\\main\\resources\\Excel-Files\\Estimations.xlsx",
+    "Path_Excel_Template" : "src\\main\\resources\\Excel-Files\\Static_Content.xlsx"
+  },
+  "Fonts":{
+    "Font_Normal" : "Gotham Narrow Book",
+    "Font_Header" : "Gotham Narrow Bold",
+    "Font_Footer" : "Gotham Narrow Light",
+    "Font_Default": "Calibri"
+  },
+  "Font-Sizes": {
+    "FontS_Normal": "10",
+    "FontS_Header": "14",
+    "FontS_Small" : "8",
+    "FontS_Sum_Small" : "9",
+    "FontS_Sum_Header" : "20",
+    "FontS_Normal_Content" : "11",
+    "FontS_Content_Header" : "16",
+    "FontS_Sum_Header_Normal" : "11",
+    "FontS_Sum_Body_Normal" : "10",
+    "FontS_ContentTable_Normal" : "12"
+  },
+  "Header_Height": "810",
+  "With_inPrz" : 0.669,
+  "Height_inPrz" : 1.0,
+  "Colum_Width_inPx" : "14850",
+  "Bullet-Point": "▪",
+  "S_Bullet-Point": "-",
+  "Char_Width_Const" : "256",
+  "Currency" : "EUR",
+  "Static_Texts" : {
+    "Null_Text_Licenses" : "No licenses required",
+    "TableOfContents_Text" : "Detailed Estimations for "
+  },
+  "DataFormat_Number": "#,##0.00",
+  "ContentTable_Name" : "Cover + TOC"
+}

@@ -50,6 +50,9 @@
                                     <div th:replace="~{fragments/rdioFrag :: rdioFrag(${item},${itemStat.index},'quotationBttns')}"></div>
                                 </div>
                             </div>
+                            <hr>
+                            <div th:replace="~{fragments/numbFrag :: numbFrag('What maintenance do we have here' ,0 ,'maintenance')}"></div>
+                            <div th:replace="~{fragments/numbFrag :: numbFrag('What duration are we talking about' ,0 ,'duration')}"></div>
                         </div>
                         <div class="optionals">
                             <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Optional Inputs:</h1>

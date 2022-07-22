@@ -1,9 +1,10 @@
 package com.mic_cust.frontend;
 
+import Runnables.Main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mic_cust.frontend.Data.Conv_Output;
-
+import Writers.ConfigWirter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -50,11 +51,9 @@ public class ConfigsWriter {
     protected final String RD_PTH = "src\\main\\resources\\Data\\TemplateJson\\TempEntrdJSON.json";
     public void buildConfigs(Conv_Output output) {
         new File(new File(WRT_PTH).getAbsolutePath()).delete(); //Delete File
-        try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(WRT_PTH).getAbsolutePath())))){
-            writer.write(createJSONStr(output));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        ConfigWirter writer = new ConfigWirter();
+        writer.write(createJSONStr(output));
+        Main.main(new String[0]); //That is on god never gonna work
 
     }
 
@@ -71,11 +70,11 @@ public class ConfigsWriter {
     private void setFilterReps(JSONObject obj, Conv_Output out){
         JSONObject FltrReps = new JSONObject();
         FltrReps.put(Key_Rep_Company, out.CompName);
-        //Add Title_Rep, Quotation_Rep
+        //Add Title_Rep, Quotation_Rep, Maintenance_Rep, Duration_Rep
         FltrReps.put(Key_Rep_Title, out.Title);
         FltrReps.put(Key_Rep_Quotation, out.Quotation);
-        //Optional Maintenance_Rep, Duration_Rep
-
+        FltrReps.put(Key_Rep_Maintenance, (double)out.Maintenance);
+        FltrReps.put(Key_Rep_Duration, out.Duration);
         obj.put(Key_Filter_RepsObj, FltrReps);
     }
 

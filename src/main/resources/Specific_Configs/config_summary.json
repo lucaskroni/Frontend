@@ -1,0 +1,31 @@
+{
+  "Static_Texts" : {
+    "Dummy_Pic_Text" : "Insert Image :)",
+    "Null_Text_Summary" : "n/a",
+    "Included_Text_Sum" : "included in SaaS Fee",
+    "Filler_Summary" : "-",
+    "AllOverScopeHeader": "The Phase"
+  },
+  "Header_Cols_Summary": "14",
+  "Footer_Height" : "1200",
+  "SUM_Bullet-Point": "•",
+  "Indentions": {
+    "Indention_Sum_Row_Head": "2"
+  },
+  "Static-Rows": {
+    "Header-Row": {
+      "Task_Cell": "Tasks (One-Time)",
+      "One-Time": {
+        "Label": "One-Time Costs in EUR",
+        "Content-Cells": ["Effort\nin Days","Professional Service Costs","Licenses","Country Specific \nAdd-On (1)","Estimated\nTravel\nExpenses", "Total\nOne-Time Costs"]
+      },
+      "Recurring-Costs": {
+        "Label": "Recurring Costs in EUR",
+        "Content-Cells": ["Maintenance on Standard\nSoftware","Maintenance on Country-Specific \nAdd-On (2)","Maintenance on Customer-Specific Adaptations","2nd & 3rd Level Application\nSupport (3)","Monthly Basic Fee\nin EUR (4)\nContract Duration: <Duration>y","Included\nAnnual\nVolume","Fee per\nAdditional Item"]
+      }
+    },
+    "Footer-Row": ["Payment Terms: 30 days net at the end of month of the issue date of the relevant invoice\n\nTime of invoicing: See right columns", "", " Monthly or \naccording agreed payment schedule", "Invoiced at\ncontract signing or latest at\nproject kick-off","Invoiced at\ncontract signing or latest at\nproject kick-off","Monthly according actual costs", "", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "Annually in advance starting with project kick-off, on the basis of the fees listed above for the various MIC modules. \nEach year a review takes place, which can lead to a decrease / increase of the annual fee for the following year based on the actually processed transaction volume.", "Annually in advance starting with project kick-off, on the basis of the fees listed above for the various MIC modules. \nEach year a review takes place, which can lead to a decrease / increase of the annual fee for the following year based on the actually processed transaction volume.", "Annually in advance starting with project kick-off, on the basis of the fees listed above for the various MIC modules. \nEach year a review takes place, which can lead to a decrease / increase of the annual fee for the following year based on the actually processed transaction volume."],
+    "Header-Cell": "<Title>\nSaaS Solution",
+    "Header-Cell-Optional": "Optional: Data Extraction Programs, Additional Interfaces and Rollout for Additional Plants\nSaaS Solution"
+  }
+}

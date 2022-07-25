@@ -27,7 +27,7 @@
         </div>
         <div class="cont_bdy">
             <div >
-                <div th:replace="~{fragments/bttnFrag :: bttnFrag('Create New',true)}"></div>
+                <div th:replace="~{fragments/bttnFrag :: bttnFrag('Create New','anim_bttn')}"></div>
             </div>
             <div class="_playgrd" >
                 <canvas id="line-canvas">
@@ -39,7 +39,11 @@
                             <div th:replace="~{fragments/txInFrag :: txInFrag('','Who is that Company called','Company')}"></div>
                             <div th:replace="~{fragments/txInFrag :: txInFrag('', 'Hmm how should you call it','Title')}"></div>
                             <hr>
-                            <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
+                            <div class="modeScopes">
+                                <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
+                                </div>
+                                <div th:replace="~{fragments/bttnFrag :: bttnFrag('Select All','sub_button02')}">
+                                </div>
                             </div>
                             <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
                                 <div th:replace="~{fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})}"></div>
@@ -53,16 +57,20 @@
                             <hr>
                             <div th:replace="~{fragments/numbFrag :: numbFrag('What maintenance do we have here' ,0 ,'maintenance')}"></div>
                             <div th:replace="~{fragments/numbFrag :: numbFrag('What duration are we talking about' ,0 ,'duration')}"></div>
-                        </div>
+                            <hr>
                         <div class="optionals">
                             <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Optional Inputs:</h1>
                             <div th:replace="~{fragments/fileFrag :: fileFrag('Where is the Estimation-File', 'estimation')}"></div>
                             <div th:replace="~{fragments/fileFrag :: fileFrag('And where is the Statics-File', 'statics')}"></div>
                         </div>
+                            <hr>
+                            <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Finishing Touch:</h1>
+                            <div th:replace="~{fragments/fileFrag :: fileFrag('Where should the File be saved to', 'excelOut')}"></div>
+                        </div>
                     </form>
                 </div>
                 <div class="cont_ftr">
-                    <div th:replace="~{fragments/bttnFrag :: bttnFrag('Finish',false)}"></div>
+                    <div th:replace="~{fragments/bttnFrag :: bttnFrag('Finish','sub_button01')}"></div>
                 </div>
             </div>
         </div>

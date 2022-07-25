@@ -6,6 +6,12 @@
     font-weight: 600;
 }
 
+.modeScopes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 body{
     display: flex;
     flex-direction: column;

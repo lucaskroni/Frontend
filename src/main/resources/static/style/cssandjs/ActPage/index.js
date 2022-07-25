@@ -1,6 +1,7 @@
 let index = 0
 
 const animateText = () => {
+    setup()
     const maxStr = "end"
     const wrtTxt = ['W','Wo','Wor','Work','Wor','Wo','W','',' ', '', 'C', 'Co', 'Con', 'Conv', 'Conve', 'Conver', 'Convert', 'Converti',  'Convertin', 'Converting','end']
     if(maxStr !== wrtTxt[index]){
@@ -12,5 +13,17 @@ const animateText = () => {
         setTimeout(animateText, 250)
     }
 }
+
+const setupListeners = () => {
+    document.getElementById("hd_check").addEventListener("change", () => {
+        console.log("hmmmmm")
+        document.getElementById("switch_Form").submit()
+    })
+}
+
+const setup = () => {
+    setupListeners()
+}
+
 
 window.addEventListener('load', animateText)

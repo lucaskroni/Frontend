@@ -95,6 +95,19 @@ public class ConfigsWriter {
 
 
     private void setExtras(JSONObject obj, Conv_Output out){
+        setPaths(obj, out);
+    }
+
+    private void setPaths(JSONObject obj, Conv_Output out) {
+        JSONObject pathsObj = new JSONObject();
+        pathsObj.put(Key_Slct_Out, out.Pth_ExcelOut);
+        if(out.Pth_Estimation != null || out.Pth_Estimation != ""){
+            pathsObj.put(Key_Slct_Est, out.Pth_Estimation);
+        }
+        if(out.Pth_Statics != null || out.Pth_Statics != null){
+            pathsObj.put(Key_Slct_Sta, out.Pth_Statics);
+        }
+        obj.put(Key_Paths_Obj, pathsObj);
     }
 
     private JSONObject readInTemp() {

@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -31,7 +32,7 @@ public class ConfigsReader {
 
     public void readConfig(){
         JSONParser parser = new JSONParser();
-        try(BufferedReader reader = new BufferedReader(new FileReader(new File(_PTH).getAbsolutePath()))) {
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(_PTH).getAbsolutePath()), StandardCharsets.UTF_8))) {
             setConfigs((JSONObject) parser.parse(reader));
         } catch (IOException | ParseException ex) {
             throw new RuntimeException(ex);

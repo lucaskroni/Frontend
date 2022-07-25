@@ -11,9 +11,9 @@
 </head>
 <body>
     <div id="bttn-div" th:fragment="bttnFrag(Text,condi)">
-        <div class="noTime" th:id="${condi} ? noTime : noTime_nor">
-            <input th:class="${condi} ? input_bttn_ba : input_bttn_nor" type="checkbox" th:id="${condi} ? input_bttn : input_bttn_nor"/>
-            <label id="input-lbl" th:onclick="|handlecreateClick(${condi})|" th:for="${condi} ? input_bttn : input_bttn_nor" class="bttn" th:text="${Text}">Yo</label>
+        <div class="noTime" th:id="${condi == 'anim_bttn'} ? noTime : noTime_nor">
+            <input th:class="${condi == 'anim_bttn'} ? input_bttn_ba : input_bttn_nor" type="checkbox" th:id="${condi == 'anim_bttn'} ? input_bttn : input_bttn_nor"/>
+            <label th:data-condition="${condi}" id="input-lbl" th:onclick="|handlecreateClick(event)|" th:for="${condi == 'anim_bttn'} ? input_bttn : input_bttn_nor" class="bttn" th:text="${Text}">Yo</label>
         </div>
     </div>
 </body>

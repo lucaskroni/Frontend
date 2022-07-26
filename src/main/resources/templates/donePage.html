@@ -4,16 +4,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Done :)</title>
     <link rel="stylesheet" th:href="@{/style/cssandjs/donePage/style.css}" href="../static/style/cssandjs/donePage/style.css">
+    <link rel="stylesheet" th:href="@{style/cssandjs/ReldResources/style.css}"/>
+    <script type="text/javascript" th:src="@{style/cssandjs/ReldResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/donePage/index.js}" src="../static/style/cssandjs/donePage/index.js"></script>
 </head>
 <body>
-    <div>
+    <header>
+        <form id="backForm" th:action="@{/form}">
+            <div th:replace="fragments/reldFrag :: reldFrag()"></div>
+        </form>
+    </header>
+    <div class="bodyDiv">
         <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
         <lord-icon
                 src="https://cdn.lordicon.com/lupuorrc.json"
                 trigger="hover"
                 colors="primary:#2f2e41,secondary:#8fb77b"
-                style="width:750px;height:750px">
+                style="width:500px;height:500px">
         </lord-icon>
         <div class="lbl_div">
         <span id="txt_done">

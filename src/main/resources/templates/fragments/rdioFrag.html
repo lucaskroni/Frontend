@@ -7,8 +7,8 @@
     <script type="text/javascript" src="../../static/style/cssandjs/RdioResources/index.js" th:src="@{style/cssandjs/RdioResources/index.js}"></script>
 </head>
 <body>
-    <div th:fragment="rdioFrag(value,index,unique)">
-        <input class="radioInput" type="radio" th:value="${value}" th:field="*{Quotation}" th:id="radio">
+    <div th:fragment="rdioFrag(value,index)">
+        <input class="radioInput" type="radio" th:value="${value}" th:field="*{Quotation}" th:id="${'radio' + index}">
         <label class="radioLbl" th:for="radio" th:text="${value}"></label>
     </div>
 </body>

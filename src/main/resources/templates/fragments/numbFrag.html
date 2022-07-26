@@ -3,13 +3,15 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Number Counter</title>
+    <link rel="stylesheet" th:href="@{/style/cssandjs/NumbResources/style.css}" href="../../static/style/cssandjs/NumbResources/style.css">
+    <script type="text/javascript" th:src="@{/style/cssandjs/NumbResources/index.js}" src="../../static/style/cssandjs/NumbResources/index.js"></script>
 </head>
 <body>
     <div th:fragment="numbFrag(textVal ,initVal ,switcher)">
         <label for="input_numb" th:text="${textVal + ': '}"></label><br>
         <span th:switch="${switcher}" class="numbSlct">
-            <input id="input_numb" th:case="duration" th:value="${initVal}" type="number" step="1" th:field="*{Duration}">
-            <input id="input_numb" th:case="maintenance" th:value="${initVal}" type="number" step="1" th:field="*{Maintenance}">
+            <input id="input_numb" th:case="duration" th:value="${initVal}" type="number" step="1" min="0" th:field="*{Duration}">
+            <input id="input_numb" th:case="maintenance" th:value="${initVal}" type="number" step="1" min="0" th:field="*{Maintenance}">
         </span>
     </div>
 </body>

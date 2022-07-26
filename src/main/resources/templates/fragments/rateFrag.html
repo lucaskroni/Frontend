@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>RateFragment</title>
+    <link rel="stylesheet" th:href="@{/style/cssandjs/RateResources/style.css}" href="../../static/style/cssandjs/RateResources/style.css">
+    <script type="text/javascript" th:src="@{/style/cssandjs/RateResources/index.js}" src="../../static/style/cssandjs/RateResources/index.js"></script>
+</head>
+<body>
+    <div th:fragment="rateFrag(text, initVal, switcher)">
+        <label th:text="${text + ':'}" th:for="${#ids.next('input')}" th:id="|${switcher}lblRate|"></label><br>
+        <span th:switch="${switcher}">
+            <input type="number" th:case="SeniorM" th:field="*{Dr_SeniorMMT}" th:value="${initVal}" step="10" min="0" th:id="|${switcher}InputRate|">
+            <input type="number" th:case="ProjectM" th:field="*{Dr_ProjectMMT}" th:value="${initVal}" step="10" min="0" th:id="|${switcher}InputRate|">
+            <input type="number" th:case="Developer" th:field="*{Dr_Developer}" th:value="${initVal}" step="10" min="0" th:id="|${switcher}InputRate|">
+            <input type="number" th:case="Support" th:field="*{Dr_Support}" th:value="${initVal}" step="10" min="0" th:id="|${switcher}InputRate|">
+        </span>
+    </div>
+</body>
+</html>

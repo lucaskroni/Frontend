@@ -2,6 +2,12 @@
 //Constants
 let prevBodyHeight //I know its a let but yeah for me its a constant :(
 
+
+clearSessionStorage = () =>{
+    sessionStorage.clear()
+    console.log("clear")
+}
+
 appeare = () => { //Makes stuff appeare :)
     const cvs = document.getElementById('line-canvas')
     const cvs_cntx = cvs.getContext('2d')
@@ -93,3 +99,5 @@ const setupMain = () => {
     deactivateActions()
 }
 setTimeout(setupMain, 500)
+
+window.addEventListener("load", clearSessionStorage)

@@ -2,7 +2,7 @@ package com.mic_cust.frontend;
 
 import com.mic_cust.frontend.Data.Module;
 import com.mic_cust.frontend.Data.Conv_Output;
-import com.mic_cust.frontend.Threads.FileWatcher;
+import com.mic_cust.frontend.Threads.FileWriter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +26,8 @@ public class FormController {
     protected ArrayList<Module> inModules;
     protected Conv_Output outConvs;
     protected LocalDateTime lastLoad = null;
+
+    protected Thread runWriter;
 
     public FormController(){
         new ConfigsReader().readConfig();
@@ -68,28 +70,25 @@ public class FormController {
         return inMap;
     }
 
-    public void watchFile(String fileName, Conv_Output output, Model model){
-        FileWatcher watcher = new FileWatcher(fileName, model);
-        watcher.run();
-    }
-
     @GetMapping("/form")
     public String showForm(Model mdl){
+        outConvs = new Conv_Output(); // Renew it because we could reload you know
         mdl.addAttribute("outConvs",outConvs);
         return "InputForm";
     }
 
     @PostMapping("/form")
     public String saveConfigs(@ModelAttribute("outVal_conv") Conv_Output out, Model mdl){
-        new ConfigsWriter().buildConfigs(out);
         mdl.addAttribute("done", false);
-        watchFile(out.Pth_ExcelOut, out, mdl);
+        outConvs = out;
         return "actPage";
     }
 
      @PostMapping("/done")
     public String donePage(@ModelAttribute("finishVal") Conv_Output out,Model mdl){
         mdl.addAttribute(out);
+        FileWriter writer = new FileWriter(outConvs, outConvs.Pth_ExcelOut);
+        writer.run();
         return "donePage";
      }
 }

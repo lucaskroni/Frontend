@@ -29,6 +29,10 @@
     display: none;
 }
 
+#input_bttn_slct{
+    display: none;
+}
+
 #output-bttn{
     display: none;
 }
@@ -52,6 +56,18 @@
 }
 
 .input_bttn_nor + .bttn{
+    animation-name: click2;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+.input_bttn_slct:checked + .bttn{
+    animation-name: click;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+.input_bttn_slct + .bttn{
     animation-name: click2;
     animation-duration: 250ms;
     animation-timing-function: ease;

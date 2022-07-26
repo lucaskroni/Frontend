@@ -1,0 +1,14 @@
+.errorDiv{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-basis: 100%;
+    align-items: center;
+}
+
+.errorSpan{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+}

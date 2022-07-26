@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Reload Button</title>
+    <link rel="stylesheet" th:href="@{style/cssandjs/ReldResources/style.css}" href="../../static/style/cssandjs/ReldResources/style.css"/>
+    <script type="text/javascript" th:src="@{style/cssandjs/ReldResources/index.js}" src="../../static/style/cssandjs/ReldResources/index.js"></script>
+</head>
+<body>
+    <div th:fragment="reldFrag()">
+        <div onclick="handleClickBack()" class="cross">
+            <div class="upRec"></div>
+            <div class="downRec"></div>
+        </div>
+    </div>
+</body>
+</html>

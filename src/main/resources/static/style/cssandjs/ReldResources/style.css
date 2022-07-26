@@ -1,0 +1,32 @@
+.upRec {
+    width: 35px;
+    height: 5px;
+    background: #090D07;
+    border-radius: 3px;
+    transition: background-color ease-in-out 0.5s;
+    transform: rotateZ(-45deg) translateY(3.5px);
+}
+
+.downRec{
+    width: 35px;
+    height: 5px;
+    background: #090D07;
+    border-radius: 3px;
+    transition: all ease-in-out 0.5s;
+    transform: rotateZ(45deg) translateY(-4px);
+}
+
+.cross{
+    height: max-content;
+    width: max-content;
+    margin: 1.2rem;
+    transition: transform ease-in-out 0.4s;
+}
+
+.cross:hover div{
+    background-color: #8FB77B;
+}
+
+.cross:hover{
+    transform: rotate(90deg);
+}

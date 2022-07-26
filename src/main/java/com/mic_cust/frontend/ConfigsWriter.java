@@ -96,15 +96,63 @@ public class ConfigsWriter {
 
     private void setExtras(JSONObject obj, Conv_Output out){
         setPaths(obj, out);
+        setDates(obj, out);
+        setDailyRates(obj, out);
+        setPercentages(obj, out);
+    }
+
+    private void setPercentages(JSONObject obj, Conv_Output out) {
+        JSONObject pctgObj = new JSONObject();
+        if(out.getPcg_SeniorMNG() != 0){
+            pctgObj.put(Key_Sen_Pcg, out.getPcg_SeniorMNG());
+        }
+        if(out.getPcg_ProjectMNG() != 0){
+            pctgObj.put(Key_Pro_Pcg, out.getPcg_ProjectMNG());
+        }
+        if(!pctgObj.isEmpty()){
+            obj.put(Key_PCG_Obj, pctgObj);
+        }
+    }
+
+    private void setDailyRates(JSONObject obj, Conv_Output out) {
+        JSONObject dailyRatesObj = new JSONObject();
+        if(out.getDr_SeniorMMT() != 0){
+            dailyRatesObj.put(Key_DR_SenMMT, out.Dr_SeniorMMT);
+        }
+        if (out.getDr_ProjectMMT() != 0){
+            dailyRatesObj.put(Key_DR_ProMMT, out.Dr_ProjectMMT);
+        }
+        if(out.getDr_Developer() != 0){
+            dailyRatesObj.put(Key_DR_Dev, out.Dr_Developer);
+        }
+        if(out.getDr_Support() != 0){
+            dailyRatesObj.put(Key_DR_Sup, out.Dr_Support);
+        }
+        if(!dailyRatesObj.isEmpty()){
+            obj.put(Key_DRs_Obj, dailyRatesObj);
+        }
+    }
+
+    private void setDates(JSONObject obj, Conv_Output out) {
+        JSONObject datesObj = new JSONObject();
+        if(out.getCreatedOn_Date() != null || !out.getCreatedOn_Date().equals("")){
+            datesObj.put(Key_Date_Created_On, out.getCreatedOn_Date());
+        }
+        if(out.getTillValid_Date() != null || !out.getTillValid_Date().equals("")){
+            datesObj.put(Key_Date_Valid_Till, out.getTillValid_Date());
+        }
+        if(!datesObj.isEmpty()){
+            obj.put(Key_Date_Object, datesObj);
+        }
     }
 
     private void setPaths(JSONObject obj, Conv_Output out) {
         JSONObject pathsObj = new JSONObject();
         pathsObj.put(Key_Slct_Out, out.Pth_ExcelOut);
-        if(out.Pth_Estimation != null || out.Pth_Estimation != ""){
+        if(out.getPth_Estimation() != null || !out.getPth_Estimation().equals("")){
             pathsObj.put(Key_Slct_Est, out.Pth_Estimation);
         }
-        if(out.Pth_Statics != null || out.Pth_Statics != null){
+        if(out.getPth_Statics() != null || !out.getPth_Statics().equals("")){
             pathsObj.put(Key_Slct_Sta, out.Pth_Statics);
         }
         obj.put(Key_Paths_Obj, pathsObj);

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Percentage Fragment</title>
+  <link rel="stylesheet" th:href="@{/style/cssandjs/PctgResources/style.css}" href="../../static/style/cssandjs/PctgResources/style.css">
+  <script type="text/javascript" th:src="@{/style/cssandjs/PctgResources/index.js}" src="../../static/style/cssandjs/PctgResources/index.js"></script>
+</head>
+<body>
+    <div th:fragment="pctgFrag(text, initVal, switcher)">
+        <label th:text="${text + ':'}" th:for="${#ids.next('input')}" th:id="|${switcher}lblpctg|"></label><br>
+        <span th:switch="${switcher}">
+            <input type="number" th:field="*{Pcg_SeniorMNG}" step="0.1" min="0" th:case="senior" th:id="|${switcher}NumPctg|">
+             <input type="number" th:field="*{Pcg_ProjectMNG}" step="0.1" min="0" th:case="project" th:id="|${switcher}NumPctg|">
+        </span>
+    </div>
+</body>
+</html>

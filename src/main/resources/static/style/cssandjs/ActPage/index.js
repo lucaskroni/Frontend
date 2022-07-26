@@ -11,11 +11,13 @@ const animateText = () => {
         console.log(wrtLtrs)
         index = index + 1
         setTimeout(animateText, 250)
+    }else{
+        document.getElementById("hd_check").click()
     }
 }
 
 const setupListeners = () => {
-    document.getElementById("hd_check").addEventListener("change", () => {
+    document.getElementById("hd_check").addEventListener("click", () => {
         console.log("hmmmmm")
         document.getElementById("switch_Form").submit()
     })

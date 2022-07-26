@@ -29,13 +29,13 @@ public class Conv_Output implements Serializable {
     public String TillValid_Date;
     public String CreatedOn_Date;
     //Daily_Rates:
-    public String Dr_SeniorMMT;
-    public String Dr_ProjectMMT;
-    public String Dr_Developer;
-    public String Dr_Support;
+    public double Dr_SeniorMMT = 0;
+    public double Dr_ProjectMMT = 0;
+    public double Dr_Developer = 0;
+    public double Dr_Support = 0;
     //Precentages:
-    public String Pcg_SeniorMNG;
-    public String Pcg_ProjectMNG;
+    public double Pcg_SeniorMNG;
+    public double Pcg_ProjectMNG;
     //------------>
 
 }

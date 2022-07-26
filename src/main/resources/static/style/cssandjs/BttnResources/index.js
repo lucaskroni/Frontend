@@ -4,6 +4,17 @@ setTimeout(function(){
     console.log(what.className)
 },500);
 
+
+const getCondiRadiobttns = () => {
+    let bool = false;
+    const listRadios = document.getElementsByClassName("radioInput")
+    for (let item of listRadios) {
+        bool = item.checked
+    }
+    console.log(bool)
+    return bool
+}
+
 function handlecreateClick(event){
     //Leeeeetttsseee gooooo ahahhahahahahahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhh
     //Call back into the other JS-File that only works with require.js or browserify both tools to download so = bad
@@ -21,12 +32,14 @@ function handlecreateClick(event){
         })
         elem.id = "noTime"
     }else if(condi === "sub_button01"){
-        //Submit the data
-        const elem = document.getElementById("noTime")
-        if(elem.className === ''){
-            elem.className = "NoListen"
+        const elem = document.getElementById('noTime_nor')
+        if(elem !== null){
+            if(elem.className !== ""){
+                elem.className = ""
+            }
         }
-        if(document.getElementById('input').value !== "" && document.getElementById('input').value !== null){
+        //Submit the data
+        if(document.getElementById('input').value !== "" && document.getElementById('input').value !== null && document.getElementById('out_Path').value !== "" && document.getElementById('out_Path').value !== null && getCondiRadiobttns()){
             document.getElementById('input-form').submit()
         }
     }else if(condi === "sub_button02"){

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>DatePicker</title>
+  <link rel="stylesheet" href="../../static/style/cssandjs/DateResources/style.css" th:href="@{style/cssandjs/DateResources/style.css}"/>
+  <script type="text/javascript" src="../../static/style/cssandjs/DateResources/index.js" th:src="@{style/cssandjs/DateResources/index.js}"></script>
+</head>
+<body>
+  <div th:fragment="dateFrag(text ,switcher)">
+    <label th:text="${text}" th:for="|date${switcher}|"></label>:<br>
+    <span th:switch="${switcher}">
+      <input th:case="Valid" th:id="|date${switcher}|" type="date" th:field="*{TillValid_Date}">
+      <input th:case="Create" th:id="|date${switcher}|" type="date" th:field="*{CreatedOn_Date}">
+    </span>
+  </div>
+</body>
+</html>

@@ -6,12 +6,13 @@ setTimeout(function(){
 
 
 const getCondiRadiobttns = () => {
-    let bool = false;
+    let bool = false
     const listRadios = document.getElementsByClassName("radioInput")
     for (let item of listRadios) {
-        bool = item.checked
+        if(item.checked){
+            return true
+        }
     }
-    console.log(bool)
     return bool
 }
 
@@ -61,6 +62,7 @@ function handlecreateClick(event){
         }else{
             event.target.innerText = "Select All"
         }
+        oncBoxClick()
     }
 }
 

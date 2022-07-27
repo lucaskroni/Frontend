@@ -16,6 +16,7 @@
     <script type="text/javascript" th:src="@{style/cssandjs/DateResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/NumbResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/RateResources/index.js}"></script>
+    <script type="text/javascript" th:src="@{style/cssandjs/ListResources/index.js}"></script>
     <link rel="stylesheet" th:href="@{/style/cssandjs/BttnResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/DDwnResources/style.css}"/>
@@ -26,6 +27,7 @@
     <link rel="stylesheet" th:href="@{style/cssandjs/DateResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/NumbResources/style.css}">
     <link rel="stylesheet" th:href="@{/style/cssandjs/RateResources/style.css}">
+    <link rel="stylesheet" th:href="@{style/cssandjs/ListResources/style.css}">
 </head>
 <body class="timeout" id="timeOut">
         <div class="cont_hrd">
@@ -39,20 +41,27 @@
                 <canvas id="line-canvas">
                 </canvas>
                 <div class="_content_fld">
-                    <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1> <!-- This is only Temporary please delete later and add to css maybe or style better -->
-                    <form id="input-form" th:object="${outConvs}" th:action="@{/form}" method="POST">
-                        <div class="mains">
+                    <!-- This is only Temporary please delete later and add to css maybe or style better -->
+                    <form id="input-form" autocomplete="off" th:object="${outConvs}" th:action="@{/form}" method="POST">
+                        <div class="mains" id="mains">
+                            <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Inputs:</h1>
                             <div th:replace="~{fragments/txInFrag :: txInFrag('','Who is that Company called','Company')}"></div>
                             <div th:replace="~{fragments/txInFrag :: txInFrag('', 'Hmm how should you call it','Title')}"></div>
                             <hr>
                             <div class="modeScopes">
-                                <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
+                                <div class="modScopesComp">
+                                    <div th:replace="~{fragments/ddwnFrag :: ddwnFrag(${inModuleNames}, ${inModScopeMap})}">
+                                    </div>
+                                    <div id="cBoxes">
+                                    <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
+                                        <div th:replace="~{fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})}"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div th:replace="~{fragments/listFrag :: ListFrag()}">
                                 </div>
                                 <div th:replace="~{fragments/bttnFrag :: bttnFrag('Select All','sub_button02', 'input_bttn_slct')}">
                                 </div>
-                            </div>
-                            <div th:each="item, itemStat : ${inScopesNames}" id="cBoxFactory">
-                                <div th:replace="~{fragments/cBoxFrag :: cBoxFrag(${item}, ${itemStat.index})}"></div>
                             </div>
                             <hr>
                             <div class="_radioBttns">
@@ -61,11 +70,12 @@
                                 </div>
                             </div>
                             <hr>
+                          </div>
+                        <div class="optionals" id="optionals">
+                            <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Optional Inputs:</h1>
                             <div th:replace="~{fragments/numbFrag :: numbFrag('What maintenance do we have here' ,0 ,'maintenance')}"></div>
                             <div th:replace="~{fragments/numbFrag :: numbFrag('What duration are we talking about (in Years)' ,0 ,'duration')}"></div>
-                        <div class="optionals">
                             <hr>
-                            <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Optional Inputs:</h1>
                             <div th:replace="~{fragments/fileFrag :: fileFrag('Where is the Estimation-File', 'estimation')}"></div>
                             <div th:replace="~{fragments/fileFrag :: fileFrag('And where is the Statics-File', 'statics')}"></div>
                             <hr>
@@ -80,15 +90,14 @@
                             <div th:replace="~{fragments/pctgFrag :: pctgFrag('How much Percentage does the Senior Managment get', 0.0, 'senior')}"></div>
                             <div th:replace="~{fragments/pctgFrag :: pctgFrag('What Percentage does the Project Managment get', 0.0, 'project')}"></div>
                         </div>
-                        <div class="finish">
+                        <div class="finish" id="finish">
                             <hr>
                             <h1 style="font-family: 'Source Sans Pro', sans-serif; font-weight: 400">Finishing Touch:</h1>
                             <div th:replace="~{fragments/fileFrag :: fileFrag('Where should the File be saved to', 'excelOut')}"></div>
                         </div>
-                        </div>
                     </form>
                 </div>
-                <div class="cont_ftr">
+                <div class="cont_ftr" id="cont_ftr">
                     <div th:replace="~{fragments/bttnFrag :: bttnFrag('Finish','sub_button01','input_bttn_nor')}"></div>
                 </div>
             </div>

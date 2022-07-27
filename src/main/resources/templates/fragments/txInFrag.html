@@ -10,8 +10,8 @@
     <div th:fragment="txInFrag(inVal, lblTxt, switcher)">
         <span class="lbl_spn"><label th:for="${#ids.next('input')}" th:text="${lblTxt}">Na man wiiiierd</label>:</span></br>
         <span th:switch="${switcher}">
-            <input th:case="${'Company'}" type="text" th:field="*{CompName}" th:value="${inVal}" th:text="${inVal}" id="input">
-            <input th:case="${'Title'}" type="text" th:field="*{Title}" th:value="${inVal}" th:text="${inVal}" id="input">
+            <input th:case="${'Company'}" class="CompNameStay" type="text" th:field="*{CompName}" th:value="${inVal}" th:text="${inVal}" id="input">
+            <input th:case="${'Title'}" class="NameOfStay" type="text" th:field="*{Title}" th:value="${inVal}" th:text="${inVal}" id="input">
         </span>
     </div>
 </body>

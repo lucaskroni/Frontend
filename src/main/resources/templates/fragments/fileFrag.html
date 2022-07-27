@@ -10,9 +10,9 @@
     <div th:fragment="fileFrag(textVal, switcher)">
         <label th:text="${textVal}"></label><br>
         <span th:switch="${switcher}">
-            <input th:case="excelOut" type="text" th:field="*{Pth_ExcelOut}" id="out_Path">
-            <input th:case="estimation" id="filePath" type="text" th:field="*{Pth_Estimation}">
-            <input th:case="statics" id="filePath" type="text" th:field="*{Pth_Statics}">
+            <input th:case="excelOut" class="FileSaveStay" type="text" th:field="*{Pth_ExcelOut}" id="out_Path">
+            <input th:case="estimation" class="FilePathStay" type="text" th:field="*{Pth_Estimation}" th:id="${switcher}">
+            <input th:case="statics" class="FilePathStay" type="text" th:field="*{Pth_Statics}" th:id="${switcher}">
         </span>
     </div>
 </body>

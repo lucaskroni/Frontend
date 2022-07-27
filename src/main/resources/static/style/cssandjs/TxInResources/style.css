@@ -1,0 +1,40 @@
+input[type = text]{
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #090D07;
+    border-style: solid;
+    transition: all ease-in-out 0.3s;
+    padding-top: 5px;
+    font-size: 13px;
+    background-repeat: no-repeat;
+    padding-bottom: 5px;
+    background-size: contain;
+}
+
+input[type = text]:hover{
+    border-color: #79A861;
+}
+
+input[type = text]:focus{
+    border-width: 2px;
+}
+
+.CompNameStay {
+    background-image: url("images/company.svg");
+    padding-left: 28px;
+}
+
+.FilePathStay{
+    background-image: url("images/file_path.svg");
+    padding-left: 28px;
+}
+
+.FileSaveStay{
+    background-image: url("images/Save.svg");
+    padding-left: 28px;
+}
+
+.NameOfStay{
+    background-image: url("images/NameOf.svg");
+    padding-left: 28px;
+}

@@ -12,6 +12,11 @@
     justify-content: space-between;
 }
 
+.modScopesComp{
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -89,6 +94,52 @@ html, body{
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+}
+
+
+/*======================================================================BIG-BIG-ANIMATION=================================================*/
+
+/*.mains, .finish , .cont_ftr, .optionals{
+    opacity: 0;
+    transform: translateX(100px);
+}*/
+
+.normal{
+    opacity: 100%;
+}
+
+.state1{
+    opacity: 100%;
+    transform: translateX(100px);
+}
+
+.state2{
+    opacity: 100%;
+    transform: translateX(200px);
+}
+
+.mainsAnim, .optionalsAnim, .finishAnim{
+    animation-timing-function: ease-in;
+    animation-duration: 0.6s;
+    animation-name: MoveAnim;
+}
+
+.mainsAnimBack, .optionalsAnimBack, .finishAnimBack{
+    animation-name: MoveAnim;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-direction: reverse;
+}
+
+@keyframes MoveAnim {
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to{
+        opacity: 100%;
+        transform: translateX(0px);
+    }
 }
 
 

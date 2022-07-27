@@ -16,7 +16,7 @@ public class Conv_Output implements Serializable {
     public String CompName;
     public String Quotation;
     public String Title;
-    public int Maintenance;
+    public double Maintenance;
     public int Duration;
     //Other Selectables:
     public String[] TempScopeMod;

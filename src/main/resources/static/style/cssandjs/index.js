@@ -1,7 +1,7 @@
 
 //Constants
 let prevBodyHeight //I know its a let but yeah for me its a constant :(
-
+let lastScroll = 0
 
 clearSessionStorage = () =>{
     sessionStorage.clear()
@@ -65,11 +65,95 @@ resizeBody = () => {
     prevBodyHeight = document.getElementById('line-canvas').clientHeight
 }
 
+const callbackNormMain = (main) => {
+    main.className = "normal"
+    main.removeEventListener("animationend", callbackNormMain(main))
+}
+
+const callbackNormOptional = (optional) => {
+    optional.className = "normal"
+    main.removeEventListener("animationend", callbackNormOptional(optional))
+}
+
+const callbackNormFinish = (finish, cont_ftr) => {
+    finish.className = "normal"
+    cont_ftr.className = "normal"
+    finish.removeEventListener("animationend", callbackNormFinish(finish, cont_ftr))
+}
+
+const callbackBackMain = (main) => {
+    main.className = "mains"
+    main.removeEventListener("animationend")
+}
+
+const callbackBackOptional = (optional) => {
+    optional.className = "optionals"
+    optional.removeEventListener("animationend")
+}
+
+const callbackBackFinish = (finish, cont_ftr) => {
+    finish.className = "finish"
+    cont_ftr.className = "cont_ftr"
+    finish.removeEventListener("animationend")
+}
+
+setClassOfNextToReveal = () => {
+    const main = document.getElementById("mains")
+    const optionals = document.getElementById("optionals")
+    const finish = document.getElementById("finish")
+    const cont_ftr = document.getElementById("cont_ftr")
+    console.log(window.getComputedStyle(main).opacity)
+    if(window.getComputedStyle(main).opacity  === "0"){
+        main.className = "mainsAnim"
+        main.addEventListener("animationend", callbackNormMain(main))
+    }else if(window.getComputedStyle(optionals).opacity  === "0"){
+        optionals.className = "optionalsAnim"
+        optionals.addEventListener("animationend", callbackNormOptional(optionals))
+    }else if(window.getComputedStyle(finish).opacity  === "0"){
+        finish.className = "finishAnim"
+        cont_ftr.className = "finishAnim"
+        finish.addEventListener("animationend", callbackNormFinish(finish, cont_ftr))
+    }
+}
+
+const setClassOfNextToUnReveal = () => {
+    const main = document.getElementById("mains")
+    const optionals = document.getElementById("optionals")
+    const finish = document.getElementById("finish")
+    const cont_ftr = document.getElementById("cont_ftr")
+    if(window.getComputedStyle(main).opacity === "1"){
+        main.className = "mainsAnimBack"
+        main.addEventListener("animationend", callbackBackMain(main))
+    }else if(window.getComputedStyle(optionals).opacity  === "1"){
+        optionals.className = "optionalsAnimBack"
+        optionals.addEventListener("animationend", callbackBackOptional(optionals))
+    }else if(window.getComputedStyle(finish).opacity  === "1"){
+        finish.className = "finishAnimBack"
+        cont_ftr.className = "finishAnimBack"
+        finish.addEventListener("animationend", callbackBackFinish(finish, cont_ftr))
+    }
+}
+
+reactOnScroll = () => {
+    if((lastScroll + 150) < document.scrollingElement.scrollTop){
+        setClassOfNextToReveal()
+        console.log("down")
+        lastScroll = document.scrollingElement.scrollTop
+    }else if((lastScroll - 150) > document.scrollingElement.scrollTop){
+        setClassOfNextToUnReveal()
+        console.log("up")
+        lastScroll = document.scrollingElement.scrollTop
+    }
+}
+
 setListeners = () => {
     const circle = document.getElementById("noTime")
     if(circle.className !== "NoListen"){
         circle.addEventListener("animationend", appeare)
     }
+    /*document.addEventListener("scroll", () => {
+        reactOnScroll();
+    })*/
 }
 
 setObservers = () => {

@@ -27,5 +27,9 @@
     "Footer-Row": ["Payment Terms: 30 days net at the end of month of the issue date of the relevant invoice\n\nTime of invoicing: See right columns", "", " Monthly or \naccording agreed payment schedule", "Invoiced at\ncontract signing or latest at\nproject kick-off","Invoiced at\ncontract signing or latest at\nproject kick-off","Monthly according actual costs", "", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "\"Invoiced at\ncontract signing or latest at\nproject kick-off\"", "Annually in advance starting with project kick-off, on the basis of the fees listed above for the various MIC modules. \nEach year a review takes place, which can lead to a decrease / increase of the annual fee for the following year based on the actually processed transaction volume.", "Annually in advance starting with project kick-off, on the basis of the fees listed above for the various MIC modules. \nEach year a review takes place, which can lead to a decrease / increase of the annual fee for the following year based on the actually processed transaction volume.", "Annually in advance starting with project kick-off, on the basis of the fees listed above for the various MIC modules. \nEach year a review takes place, which can lead to a decrease / increase of the annual fee for the following year based on the actually processed transaction volume."],
     "Header-Cell": "<Title>\nSaaS Solution",
     "Header-Cell-Optional": "Optional: Data Extraction Programs, Additional Interfaces and Rollout for Additional Plants\nSaaS Solution"
+  },
+  "Defaults": {
+    "Maintenance_Def": 18.0,
+    "Duration_Def": 5
   }
 }

@@ -1,5 +1,12 @@
 package com.mic_cust.frontend;
 
+import Data.ConfigReaders.ConfigReader_Content;
+import Data.ConfigReaders.ConfigReader_Global;
+import Data.ConfigReaders.ConfigReader_Normal;
+import Data.ConfigReaders.ConfigReader_Summary;
+import Data.ExcelData.ExcelReader;
+import Data.Helpers.Helper_Global;
+import Data.Helpers.Helper_Static_Rows;
 import com.mic_cust.frontend.Data.Module;
 import com.mic_cust.frontend.Data.Conv_Output;
 import com.mic_cust.frontend.Threads.FileWriter;
@@ -33,6 +40,29 @@ public class FormController {
         new ConfigsReader().readConfig();
         inModules = Configs.MOD_SCOPES.getModScopes();
         outConvs = new Conv_Output();
+    }
+
+    private void readDefaults(){
+        ConfigReader_Content reader_content = new ConfigReader_Content();
+        ConfigReader_Global reader_global = new ConfigReader_Global();
+        ConfigReader_Normal reader_normal = new ConfigReader_Normal();
+        ConfigReader_Summary reader_summary = new ConfigReader_Summary();
+        ExcelReader excelReader = new ExcelReader();
+        setDefaults();
+    }
+
+    private void setDefaults() {
+        outConvs.setMaintenance(Helper_Global.MAINTENANCE_DEFAULT);
+        outConvs.setDuration(Integer.parseInt(Helper_Global.DURATION_DEFAULT + ""));
+        outConvs.setPth_Estimation(Helper_Global.EXCEL_PATH);
+        outConvs.setPth_Statics(Helper_Global.EXCEL_TEMPLATE_PATH);
+        String[] roleNames = Helper_Global.ROLES.keySet().toArray(new String[0]);
+        outConvs.setDr_SeniorMMT(Double.parseDouble(Helper_Global.ROLES.get(roleNames[0])));
+        outConvs.setDr_ProjectMMT(Double.parseDouble(Helper_Global.ROLES.get(roleNames[1])));
+        outConvs.setDr_Developer(Double.parseDouble(Helper_Global.ROLES.get(roleNames[2])));
+        outConvs.setDr_Support(Double.parseDouble(Helper_Global.ROLES.get(roleNames[3])));
+        outConvs.setPcg_SeniorMNG(Helper_Static_Rows.SENIOR_MNG_PERCENTAGE);
+        outConvs.setPcg_ProjectMNG(Helper_Static_Rows.PROJECT_MNG_PERCENTAGE);
     }
 
     @ModelAttribute("outVal_conv")
@@ -73,6 +103,7 @@ public class FormController {
     @GetMapping("/form")
     public String showForm(Model mdl){
         outConvs = new Conv_Output(); // Renew it because we could reload you know
+        readDefaults();
         mdl.addAttribute("outConvs",outConvs);
         return "InputForm";
     }

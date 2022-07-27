@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>List Fragments</title>
+    <link rel="stylesheet" href="../../static/style/cssandjs/ListResources/style.css" th:href="@{style/cssandjs/ListResources/style.css}">
+    <script type="text/javascript" src="../../static/style/cssandjs/ListResources/index.js" th:src="@{style/cssandjs/ListResources/index.js}"></script>
+</head>
+<body>
+    <div th:fragment="ListFrag()">
+        <select id="slctList" multiple>
+        </select>
+    </div>
+</body>
+</html>

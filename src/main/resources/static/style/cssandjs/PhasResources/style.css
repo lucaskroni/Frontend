@@ -1,4 +1,4 @@
-#slctList{
+#phslist{
     width: fit-content;
     height: 5rem;
     padding: .5rem;
@@ -9,11 +9,7 @@
     overflow-y: scroll;
 }
 
-#slctList:hover{
-    border-color: #79A861;
-}
-
-#slctList li{
+#phslist li{
     list-style-type: none;
     padding: 0.2rem;
     border: 2px solid #090D07;
@@ -23,13 +19,6 @@
     background-color: #fbfbfb;
 }
 
-#slctList li:hover{
+#phslist li:hover{
     border-color: #79A861;
-    transform: scale(1.03);
-    font-weight: bolder;
-    border-style: dotted;
-}
-
-#slctList li .over{
-    border-style: dotted;
 }

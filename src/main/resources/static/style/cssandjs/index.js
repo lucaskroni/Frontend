@@ -151,9 +151,30 @@ setListeners = () => {
     if(circle.className !== "NoListen"){
         circle.addEventListener("animationend", appeare)
     }
+    addDraggingListeners(document.getElementById('deletefield'))
     /*document.addEventListener("scroll", () => {
         reactOnScroll();
     })*/
+}
+
+function addDraggingListeners(item){
+    item.addEventListener('dragstart', onItemDragStart)
+    item.addEventListener('dragover', onItemDragOver)
+    item.addEventListener('dragenter', onItemDragEnter)
+    item.addEventListener('drop', dropDelete)
+    item.addEventListener('dragend', onItemDragEnd)
+    item.addEventListener('dragleave', onItemDragLeave)
+}
+
+const dropDelete = (e) => {
+    e.stopPropagation()
+    console.log(dragSrcEl)
+    console.log(dragSrcEl.innerHTML)
+    if(dragSrcEl !== this && dragSrcEl.classList.contains('phase')){
+        if(dragSrcEl.querySelectorAll('.phaseList'))
+        dragSrcEl.remove()
+    }
+    return false
 }
 
 setObservers = () => {
@@ -185,3 +206,4 @@ const setupMain = () => {
 setTimeout(setupMain, 500)
 
 window.addEventListener("load", clearSessionStorage)
+

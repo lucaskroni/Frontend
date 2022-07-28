@@ -37,6 +37,10 @@
     display: none;
 }
 
+#input_bttn_add{
+    display: none;
+}
+
 #input_bttn:checked + .bttn{
     animation-name: click;
     animation-duration: 250ms;
@@ -68,6 +72,18 @@
 }
 
 .input_bttn_slct + .bttn{
+    animation-name: click2;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+.input_bttn_add:checked + .bttn{
+    animation-name: click;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+}
+
+.input_bttn_add + .bttn{
     animation-name: click2;
     animation-duration: 250ms;
     animation-timing-function: ease;
@@ -209,7 +225,13 @@
     }
 }
 
-
+/*=============================================================Others==========================================================*/
+.listItem{
+    list-style-type: disc; !important;
+    border: none; !important;
+    padding: 0.1rem; !important;
+    margin: 0; !important;
+}
 
 
 

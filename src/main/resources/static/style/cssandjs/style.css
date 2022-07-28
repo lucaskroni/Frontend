@@ -12,6 +12,26 @@
     justify-content: space-between;
 }
 
+.phaseField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.innerPhaseField{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: flex-end;
+    margin-bottom: 5rem
+}
+
+.innerPhaseList{
+    display: flex;
+    flex-direction: column;
+}
+
 .modScopesComp{
     display: flex;
     flex-direction: column;
@@ -94,6 +114,19 @@ html, body{
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+}
+
+#deletefield{
+    height: 5rem;
+    width: 16rem;
+    border: 4px #79A861 dashed;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #79A861;
+    font-weight: bolder;
+    align-self: center;
 }
 
 

@@ -36,6 +36,8 @@ public class Conv_Output implements Serializable {
     //Precentages:
     public double Pcg_SeniorMNG;
     public double Pcg_ProjectMNG;
+    //Phases
+    public String phases;
     //------------>
 
 }

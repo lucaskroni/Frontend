@@ -166,13 +166,26 @@ function addDraggingListeners(item){
     item.addEventListener('dragleave', onItemDragLeave)
 }
 
+const deleteInnerItem = (item) => {
+    const list = item.querySelector('ul')
+    for(let item of list.children){
+        if(item.innerText === itemTODelete){
+            item.remove()
+        }
+    }
+}
+
 const dropDelete = (e) => {
     e.stopPropagation()
-    console.log(dragSrcEl)
-    console.log(dragSrcEl.innerHTML)
+    const bindItem = document.getElementById('phaseOutput')
     if(dragSrcEl !== this && dragSrcEl.classList.contains('phase')){
-        if(dragSrcEl.querySelectorAll('.phaseList'))
-        dragSrcEl.remove()
+        if(itemTODelete === "all"){
+            dragSrcEl.remove()
+        }else{
+            deleteInnerItem(dragSrcEl)
+        }
+        createBinding()
+        console.log(bindItem.value)
     }
     return false
 }

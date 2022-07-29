@@ -11,8 +11,16 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ConfigsWriter {
+
+    //=================================SPLITTERs=========================================
+
+    private final String SPLITTER_PHASEMSs = ";";
+    private final String SPLITTER_PHASE = "%%%%";
 
     //=================================STATIC-KEYs=========================================
 
@@ -25,6 +33,7 @@ public class ConfigsWriter {
     private final String Key_Rep_Duration = "Duration_Replacement";
     //<---------------------SELECTED_INPUTS-------------------->
     private final String Key_Selected_MSs = "Selected_ModuleScopes";
+    private final String Key_Selected_Phases = "Selected_Phases";
     private final String Key_Selected_Splitter = "Selected_Array_Splitter";
     //<-------------------------PATHS-------------------------->
     private final String Key_Paths_Obj = "Paths";
@@ -57,11 +66,28 @@ public class ConfigsWriter {
 
     }
 
+    public Map<String, ArrayList<String>> createPhases(Conv_Output output){
+        Map<String, ArrayList<String>> map = new HashMap<>();
+        String[] splitFirst = output.getPhases().split(SPLITTER_PHASEMSs);
+        for(String item : splitFirst){
+            String[] splitSec = item.split(SPLITTER_PHASE);
+            if(map.containsKey(splitSec[0])){
+                map.get(splitSec[0]).add(splitSec[1]);
+            }else{
+                ArrayList<String> strings = new ArrayList<>();
+                strings.add(splitSec[1]);
+                map.put(splitSec[0], strings);
+            }
+        }
+        return map;
+    }
+
     public String createJSONStr(Conv_Output output){
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); //This man right here is just for the pretty printing
         JSONObject obj = readInTemp();
         setFilterReps(obj, output);
         setSelected_ModuleScopes(obj, output);
+        setSelected_Phases(obj, output);
         setModuleSplitter(obj, output);
         setExtras(obj, output);
         return gson.toJson(obj);
@@ -79,11 +105,27 @@ public class ConfigsWriter {
     }
 
     private void setSelected_ModuleScopes(JSONObject obj, Conv_Output out){
-        //Pretty eh yeah straight forward but look its less work which hmm idk sus to me
+        //Pretty eh yeah straight forward but look it's less work which hmm idk sus to me
         JSONArray MSs = new JSONArray();
-        for(String item : out.TempScopeMod){
-            if(item != null){
-                MSs.add(item);
+        if(!out.getPhases().equals("")){
+            Map<String, ArrayList<String>> map = createPhases(out);
+            for(Map.Entry<String, ArrayList<String>> item : map.entrySet()){
+                for(String str : item.getValue()){
+                    MSs.add(str);
+                }
+            }
+            if(out.TempScopeMod.length > MSs.size()){
+                for(String Ms : out.TempScopeMod){
+                    if(!MSs.contains(Ms)){
+                        MSs.add(Ms);
+                    }
+                }
+            }
+        }else {
+            for (String item : out.TempScopeMod) {
+                if (item != null) {
+                    MSs.add(item);
+                }
             }
         }
         obj.put(Key_Selected_MSs, MSs);
@@ -93,6 +135,20 @@ public class ConfigsWriter {
         obj.put(Key_Selected_Splitter, Configs.SPLITTER.getSplitter());
     }
 
+    private void setSelected_Phases(JSONObject obj, Conv_Output output) {
+        obj.put(Key_Selected_Phases, makePhases(output));
+    }
+
+    private JSONArray makePhases(Conv_Output output) {
+        JSONArray array = new JSONArray();
+        Map<String, ArrayList<String>> mapPhases = createPhases(output);
+        for(Map.Entry<String, ArrayList<String>> entry : mapPhases.entrySet()){
+            JSONObject jsnObj = new JSONObject();
+            jsnObj.put(entry.getKey(), entry.getValue());
+            array.add(jsnObj);
+        }
+        return array;
+    }
 
     private void setExtras(JSONObject obj, Conv_Output out){
         setPaths(obj, out);

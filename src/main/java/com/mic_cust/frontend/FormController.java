@@ -34,12 +34,13 @@ public class FormController {
     protected Conv_Output outConvs;
     protected LocalDateTime lastLoad = null;
 
-    protected Thread runWriter;
+    protected ConfigsWriter Writer;
 
     public FormController(){
         new ConfigsReader().readConfig();
         inModules = Configs.MOD_SCOPES.getModScopes();
         outConvs = new Conv_Output();
+        Writer = new ConfigsWriter();
     }
 
     private void readDefaults(){
@@ -118,7 +119,7 @@ public class FormController {
      @PostMapping("/done")
     public String donePage(@ModelAttribute("finishVal") Conv_Output out,Model mdl){
         mdl.addAttribute(out);
-        FileWriter writer = new FileWriter(outConvs, outConvs.Pth_ExcelOut);
+        FileWriter writer = new FileWriter(outConvs, outConvs.Pth_ExcelOut, Writer);
         writer.run();
         return "donePage";
      }

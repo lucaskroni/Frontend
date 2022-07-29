@@ -31,6 +31,15 @@ const noContained = (children, str) => {
     return true
 }
 
+const noContainedNew = (children, str) => {
+    for(let item of children){
+        if(item.dataset.key === str){
+            return false
+        }
+    }
+    return true
+}
+
 const noContainedUltimate = (classname,str) => {
     const list = document.getElementsByClassName(classname)
     for(let ulItem of list){
@@ -93,7 +102,7 @@ function handlecreateClick(event){
         const txtInput = document.getElementById('newInput')
         const list = document.getElementById('phslist')
 
-        if((txtInput.value !== "" || txtInput.value !== null) && noContained(list.children, txtInput.value)){
+        if((txtInput.value !== "" || txtInput.value !== null) && noContainedNew(list.children, txtInput.value)){
             const item = document.createElement('li')
             const listMSs = document.createElement('ul')
             //Drag Lists
@@ -112,16 +121,54 @@ function handlecreateClick(event){
     }
 }
 
+let itemTODelete = "all"
+
 
 function addDragListeners(item){
-    item.addEventListener('dragstart', onItemDragStart)
+    item.addEventListener('dragstart', handleItemDragStartDifferent)
     item.addEventListener('dragover', onItemDragOver)
     item.addEventListener('dragenter', onItemDragEnter)
     item.addEventListener('drop', handleItemDropDiffrent)
-    item.addEventListener('dragend', onItemDragEnd)
+    item.addEventListener('dragend', handleItemDragEndDifferent)
     item.addEventListener('dragleave', onItemDragLeave)
 }
 
+function createBinding(){
+    const bindingItem = document.getElementById('phaseOutput')
+    bindingItem.value = ""
+    const phaseList = document.getElementById('phslist')
+    for(let item of phaseList.children){
+        if(item.querySelector('ul').children.length !== 0) {
+                for (let innerListItem of item.querySelector('ul').children) {
+                    if (bindingItem.value === "" || bindingItem.value === undefined || bindingItem.value === null) {
+                        bindingItem.value = `${item.dataset.key}%%%%${innerListItem.innerHTML}`
+                    } else {
+                        bindingItem.value = `${bindingItem.value};${item.dataset.key}%%%%${innerListItem.innerHTML}`
+                    }
+                }
+        }
+    }
+}
+
+function handleItemDragEndDifferent(){
+    this.classList.remove('over')
+    this.style.opacity = '1'
+    this.style.fontWeight = 'normal'
+    const deleteArea = document.getElementById('deletefield')
+    deleteArea.style.opacity = '0'
+}
+
+function handleItemDragStartDifferent(e){
+    this.style.opacity = '0.4'
+    const deleteArea = document.getElementById('deletefield')
+    deleteArea.style.opacity = '1'
+    this.style.fontWeight = 'bold'
+
+    dragSrcEl = this
+
+    e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/html', this.innerHTML)
+}
 
 function handleItemDropDiffrent(e){  //Very different stuff on god
     e.stopPropagation()
@@ -139,20 +186,21 @@ function handleItemDropDiffrent(e){  //Very different stuff on god
                 newItem.style.cursor = "move"
                 newItem.draggable = true
                 newItem.addEventListener('dragstart', () => {
-                    this.classList.add(newItem.innerText.replaceAll(" ", "_"))
+                    const deleteArea = document.getElementById('deletefield')
+                    deleteArea.style.opacity = '1'
+                    itemTODelete = newItem.innerText
                 })
                 //TODO: Go on here and make it so that you are able to remove also one by one scopeModule in the Phase
                 newItem.addEventListener('dragend', () => {
-                    this.classList.remove(newItem.innerText.replaceAll(" ", "_"))
+                    dragSrcEl.style.opacity = '1'
+                    const deleteArea = document.getElementById('deletefield')
+                    deleteArea.style.opacity = '0'
+                    itemTODelete = "all"
                 })
-                if(bindingItem.value === "" || bindingItem.value === undefined || bindingItem.value === null){
-                    bindingItem.value = `${this.dataset.key}_${dragSrcEl.innerHTML}`
-                }else{
-                    bindingItem.value = `${bindingItem.value};${this.dataset.key}_${dragSrcEl.innerHTML}`
-                }
-                console.log(bindingItem.value)
                 ulList.appendChild(newItem)
                 this.appendChild(ulList)
+                createBinding()
+                console.log(bindingItem.value)
             }
         }
     }

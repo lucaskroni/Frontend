@@ -127,6 +127,8 @@ html, body{
     color: #79A861;
     font-weight: bolder;
     align-self: center;
+    opacity: 0;
+    transition: opacity ease-in-out .4s;
 }
 
 

@@ -18,6 +18,16 @@
     justify-content: space-between;
 }
 
+.optionalField{
+    display: flex;
+    flex-direction: row;
+}
+
+.innerOptField{
+    display: flex;
+    flex-direction: column;
+}
+
 .innerPhaseField{
     display: flex;
     flex-direction: column;
@@ -116,7 +126,7 @@ html, body{
     flex-direction: column;
 }
 
-#deletefield{
+#deletefield, #deletefield_opti{
     height: 5rem;
     width: 16rem;
     border: 4px #79A861 dashed;

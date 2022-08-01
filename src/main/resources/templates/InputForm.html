@@ -18,6 +18,7 @@
     <script type="text/javascript" th:src="@{/style/cssandjs/RateResources/index.js}"></script>
     <script type="text/javascript" th:src="@{style/cssandjs/ListResources/index.js}"></script>
     <script type="text/javascript" th:src="@{/style/cssandjs/PhasResources/index.js}"></script>
+    <script type="text/javascript" th:src="@{/style/cssandjs/OptiResources/index.js}"></script>
     <link rel="stylesheet" th:href="@{/style/cssandjs/BttnResources/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/style.css}"/>
     <link rel="stylesheet" th:href="@{/style/cssandjs/DDwnResources/style.css}"/>
@@ -30,6 +31,7 @@
     <link rel="stylesheet" th:href="@{/style/cssandjs/RateResources/style.css}">
     <link rel="stylesheet" th:href="@{style/cssandjs/ListResources/style.css}">
     <link rel="stylesheet" th:href="@{/style/cssandjs/PhasResources/style.css}"/>
+    <link rel="stylesheet" th:href="@{/style/cssandjs/OptiResources/style.css}"/>
 </head>
 <body class="timeout" id="timeOut">
         <div class="cont_hrd">
@@ -79,8 +81,18 @@
                                     <div th:replace="~{fragments/bttnFrag :: bttnFrag('Add','sub_button03', 'input_bttn_add')}">
                                     </div>
                                 </div>
-
                             </div>
+                            <hr>
+                            <div class="optionalField">
+                                <div class="innerOptField">
+                                    <label>Optionals (Optional)</label>
+                                    <div th:replace="~{fragments/OptiFrag :: OptiFrag()}"></div>
+                                </div>
+                                <div id="deletefield_opti">
+                                    <label>Drop here to Delete</label>
+                                </div>
+                            </div>
+
                             <hr>
                             <div class="_radioBttns">
                                 <div th:each="item, itemStat : ${quotations}" id="radioFactory">

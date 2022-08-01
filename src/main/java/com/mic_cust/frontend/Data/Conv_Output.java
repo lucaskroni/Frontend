@@ -38,6 +38,10 @@ public class Conv_Output implements Serializable {
     public double Pcg_ProjectMNG;
     //Phases
     public String phases;
+    //Optionals
+    public String optionals;
+    //Optional-Phase
+    public String optional_phases;
     //------------>
 
 }

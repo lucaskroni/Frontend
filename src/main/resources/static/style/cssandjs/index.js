@@ -152,9 +152,19 @@ setListeners = () => {
         circle.addEventListener("animationend", appeare)
     }
     addDraggingListeners(document.getElementById('deletefield'))
+    addDraggingOptListeners(document.getElementById('deletefield_opti'))
     /*document.addEventListener("scroll", () => {
         reactOnScroll();
     })*/
+}
+
+function addDraggingOptListeners(item){
+    item.addEventListener('dragstart', onItemDragStart)
+    item.addEventListener('dragover', onItemDragOver)
+    item.addEventListener('dragenter', onItemDragEnter)
+    item.addEventListener('drop', dropDeleteOpt)
+    item.addEventListener('dragend', onItemDragEnd)
+    item.addEventListener('dragleave', onItemDragLeave)
 }
 
 function addDraggingListeners(item){
@@ -186,6 +196,14 @@ const dropDelete = (e) => {
         }
         createBinding()
         console.log(bindItem.value)
+    }
+    return false
+}
+
+const dropDeleteOpt = (e) => {
+    e.stopPropagation()
+    if(dragSrcEl !== this && !dragSrcEl.classList.contains('phase')){
+        dragSrcEl.remove()
     }
     return false
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Optional List</title>
+    <script type="text/javascript" src="../../static/style/cssandjs/OptiResources/index.js" th:src="@{/style/cssandjs/OptiResources/index.js}"></script>
+    <link rel="stylesheet" href="../../static/style/cssandjs/OptiResources/style.css" th:href="@{/style/cssandjs/OptiResources/style.css}"/>
+</head>
+<body>
+    <div th:fragment="OptiFrag()">
+        <nav>
+            <input type="text" hidden value="" th:field="*{phases}" id="optionOutput">
+            <ul id="optilist">
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

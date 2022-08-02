@@ -21,6 +21,7 @@
 .optionalField{
     display: flex;
     flex-direction: row;
+    flex-basis: 100%;
 }
 
 .innerOptField{
@@ -126,7 +127,7 @@ html, body{
     flex-direction: column;
 }
 
-#deletefield, #deletefield_opti{
+#deletefield{
     height: 5rem;
     width: 16rem;
     border: 4px #79A861 dashed;
@@ -139,6 +140,23 @@ html, body{
     align-self: center;
     opacity: 0;
     transition: opacity ease-in-out .4s;
+}
+
+#deletefield_opti{
+    height: 5rem;
+    width: 16rem;
+    border: 4px #79A861 dashed;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #79A861;
+    font-weight: bolder;
+    align-self: center;
+    opacity: 0;
+    transition: opacity ease-in-out .4s;
+    margin-left: 2rem;
+    flex-grow: 1;
 }
 
 

@@ -204,6 +204,7 @@ const dropDeleteOpt = (e) => {
     e.stopPropagation()
     if(dragSrcEl !== this && !dragSrcEl.classList.contains('phase')){
         dragSrcEl.remove()
+        createOptiBinding()
     }
     return false
 }

@@ -1,5 +1,6 @@
 package com.mic_cust.frontend;
 
+import Data.Helpers.Helper_Global;
 import Runnables.Main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,6 +61,7 @@ public class ConfigsWriter {
     protected final String RD_PTH = "src\\main\\resources\\Data\\TemplateJson\\TempEntrdJSON.json";
     public void buildConfigs(Conv_Output output) {
         new File(new File(WRT_PTH).getAbsolutePath()).delete(); //Delete File
+        Helper_Global.setWORKBOOK(null);
         ConfigWirter writer = new ConfigWirter();
         writer.write(createJSONStr(output));
         Main.main(new String[0]); //That is on god never gonna work
@@ -67,6 +69,7 @@ public class ConfigsWriter {
     }
 
     public Map<String, ArrayList<String>> createPhases(Conv_Output output){
+
         Map<String, ArrayList<String>> map = new HashMap<>();
         String[] splitFirst = output.getPhases().split(SPLITTER_PHASEMSs);
         for(String item : splitFirst){
@@ -87,7 +90,9 @@ public class ConfigsWriter {
         JSONObject obj = readInTemp();
         setFilterReps(obj, output);
         setSelected_ModuleScopes(obj, output);
-        setSelected_Phases(obj, output);
+        if(!output.getPhases().equals("") && output.getPhases() != null) {
+            setSelected_Phases(obj, output);
+        }
         setModuleSplitter(obj, output);
         setExtras(obj, output);
         return gson.toJson(obj);
@@ -107,7 +112,7 @@ public class ConfigsWriter {
     private void setSelected_ModuleScopes(JSONObject obj, Conv_Output out){
         //Pretty eh yeah straight forward but look it's less work which hmm idk sus to me
         JSONArray MSs = new JSONArray();
-        if(!out.getPhases().equals("")){
+        if(!out.getPhases().equals("") && out.getPhases() != null){
             Map<String, ArrayList<String>> map = createPhases(out);
             for(Map.Entry<String, ArrayList<String>> item : map.entrySet()){
                 for(String str : item.getValue()){

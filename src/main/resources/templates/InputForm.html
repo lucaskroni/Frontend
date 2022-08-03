@@ -92,7 +92,21 @@
                                     <label>Drop here to Delete</label>
                                 </div>
                             </div>
-
+                            <hr>
+                            <div class="optionalPhaseField">
+                                <div class="innerOPTPhaseList">
+                                    <label>Optional Phases:</label>
+                                    <div th:replace="~{fragments/PhasFrag :: PhasFrag()}"></div>
+                                </div>
+                                <div id="deletefield_phaseOPT">
+                                    <label>Drop here to Delete</label>
+                                </div>
+                                <div class="innerOPTPhaseField">
+                                    <div th:replace="~{fragments/txInFrag :: txInFrag('', 'Enter Phase Name', 'NewPhaseOPT')}"></div>
+                                    <div th:replace="~{fragments/bttnFrag :: bttnFrag('Add','sub_button04', 'input_bttn_add_opt')}">
+                                    </div>
+                                </div>
+                            </div>
                             <hr>
                             <div class="_radioBttns">
                                 <div th:each="item, itemStat : ${quotations}" id="radioFactory">

@@ -153,9 +153,20 @@ setListeners = () => {
     }
     addDraggingListeners(document.getElementById('deletefield'))
     addDraggingOptListeners(document.getElementById('deletefield_opti'))
+    addDraggingOpt_PhaseListeners(document.getElementById('deletefield_phaseOPT'))
+
     /*document.addEventListener("scroll", () => {
         reactOnScroll();
     })*/
+}
+
+function addDraggingOpt_PhaseListeners(item){
+    item.addEventListener('dragstart', onItemDragStart)
+    item.addEventListener('dragover', onItemDragOver)
+    item.addEventListener('dragenter', onItemDragEnter)
+    item.addEventListener('drop', dropDeleteOptPhase)
+    item.addEventListener('dragend', onItemDragEnd)
+    item.addEventListener('dragleave', onItemDragLeave)
 }
 
 function addDraggingOptListeners(item){
@@ -194,7 +205,7 @@ const dropDelete = (e) => {
         }else{
             deleteInnerItem(dragSrcEl)
         }
-        createBinding()
+        createBinding(bindItem)
         console.log(bindItem.value)
     }
     return false
@@ -207,6 +218,15 @@ const dropDeleteOpt = (e) => {
         createOptiBinding()
     }
     return false
+}
+
+const dropDeleteOptPhase = (e) => {
+    let bindingItem = document.getElementById('phaseOPTOutput')
+    e.stopPropagation()
+    if(dragSrcEl !== this && !dragSrcEl.classList.contains('phase') && !dragSrcEl.classList.contains('phaseopt')){
+        dragSrcEl.remove()
+        createBinding(bindingItem)
+    }
 }
 
 setObservers = () => {

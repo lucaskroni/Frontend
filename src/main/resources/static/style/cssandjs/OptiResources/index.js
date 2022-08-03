@@ -1,3 +1,5 @@
+const SPLT = 'WWWW'
+
 window.addEventListener('load', () => {
     addDragDropEventListener(document.getElementById('optilist'))
 })
@@ -21,7 +23,7 @@ function createOptiBinding(){
         if(str === ""){
             str += `${li.innerHTML}`
         }else{
-            str += `????${li.innerHTML}`
+            str += `${SPLT}${li.innerHTML}`
         }
     }
     optionBinding.value = str

@@ -13,6 +13,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,8 @@ public class ConfigsWriter {
 
     private final String SPLITTER_PHASEMSs = ";";
     private final String SPLITTER_PHASE = "%%%%";
+
+    private final String SPLITTER_OPTIONALS = "WWWW";
 
     //=================================STATIC-KEYs=========================================
 
@@ -35,6 +38,7 @@ public class ConfigsWriter {
     //<---------------------SELECTED_INPUTS-------------------->
     private final String Key_Selected_MSs = "Selected_ModuleScopes";
     private final String Key_Selected_Phases = "Selected_Phases";
+    private final String Key_Selected_Optionals = "Selected_Optionals";
     private final String Key_Selected_Splitter = "Selected_Array_Splitter";
     //<-------------------------PATHS-------------------------->
     private final String Key_Paths_Obj = "Paths";
@@ -93,9 +97,24 @@ public class ConfigsWriter {
         if(!output.getPhases().equals("") && output.getPhases() != null) {
             setSelected_Phases(obj, output);
         }
+        if(!output.getOptionals().equals("") && output.getOptionals() != null){
+            setSelected_Optionals(obj, output);
+        }
         setModuleSplitter(obj, output);
         setExtras(obj, output);
         return gson.toJson(obj);
+    }
+
+    private void setSelected_Optionals(JSONObject obj, Conv_Output output) {
+        String[] OptionalMSs = createOptionals(output);
+        obj.put(Key_Selected_Optionals, OptionalMSs);
+    }
+
+
+    private String[] createOptionals(Conv_Output output) {
+        String[] OptionalMSs = output.getOptionals().
+                split(SPLITTER_OPTIONALS);
+        return OptionalMSs;
     }
 
     private void setFilterReps(JSONObject obj, Conv_Output out){
@@ -112,7 +131,37 @@ public class ConfigsWriter {
     private void setSelected_ModuleScopes(JSONObject obj, Conv_Output out){
         //Pretty eh yeah straight forward but look it's less work which hmm idk sus to me
         JSONArray MSs = new JSONArray();
-        if(!out.getPhases().equals("") && out.getPhases() != null){
+        if(!out.getPhases().equals("") && out.getPhases() != null && !out.getOptionals().equals("") && out.getOptionals() != null){
+            Map<String, ArrayList<String>> map = createPhases(out);
+            for(Map.Entry<String, ArrayList<String>> item : map.entrySet()){
+                for(String str : item.getValue()){
+                    MSs.add(str);
+                }
+            }
+            if(out.TempScopeMod.length > MSs.size()){
+                for(String Ms : out.TempScopeMod){
+                    if(!MSs.contains(Ms) && !Arrays.asList(createOptionals(out)).contains(Ms)){
+                        MSs.add(Ms);
+                    }
+                }
+            }
+            for(String Ms : out.TempScopeMod){
+                if(Arrays.asList(createOptionals(out)).contains(Ms)){
+                    MSs.add(Ms);
+                }
+            }
+        } else if(!out.getOptionals().equals("") && out.getOptionals() != null){
+            for(String Ms : out.TempScopeMod){
+                if(!MSs.contains(Ms) && !Arrays.asList(createOptionals(out)).contains(Ms)){
+                    MSs.add(Ms);
+                }
+            }
+        for(String Ms : out.TempScopeMod){
+            if(Arrays.asList(createOptionals(out)).contains(Ms)){
+                MSs.add(Ms);
+            }
+        }
+        } else if(!out.getPhases().equals("") && out.getPhases() != null ){
             Map<String, ArrayList<String>> map = createPhases(out);
             for(Map.Entry<String, ArrayList<String>> item : map.entrySet()){
                 for(String str : item.getValue()){

@@ -12,7 +12,7 @@
     justify-content: space-between;
 }
 
-.phaseField{
+.phaseField, .optionalPhaseField{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     flex-direction: column;
 }
 
-.innerPhaseField{
+.innerPhaseField, .innerPhaseField{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,6 +41,12 @@
 .innerPhaseList{
     display: flex;
     flex-direction: column;
+}
+
+.innerOPTPhaseList{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .modScopesComp{
@@ -127,7 +133,7 @@ html, body{
     flex-direction: column;
 }
 
-#deletefield{
+#deletefield, #deletefield_phaseOPT{
     height: 5rem;
     width: 16rem;
     border: 4px #79A861 dashed;

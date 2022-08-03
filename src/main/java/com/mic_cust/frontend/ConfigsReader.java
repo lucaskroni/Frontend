@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 public class ConfigsReader {
 
-    protected final String _PTH = "src\\main\\resources\\Data\\configs.json";
+    protected String _PTH = "target//classes//Data//configs.json";
 
     //=================================STATIC_KEYS===============================
 
@@ -35,7 +35,8 @@ public class ConfigsReader {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(_PTH).getAbsolutePath()), StandardCharsets.UTF_8))) {
             setConfigs((JSONObject) parser.parse(reader));
         } catch (IOException | ParseException ex) {
-            throw new RuntimeException(ex);
+            _PTH = "classes//Data//configs.json";
+            readConfig();
         }
     }
 

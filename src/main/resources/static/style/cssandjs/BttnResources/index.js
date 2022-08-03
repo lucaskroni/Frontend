@@ -118,11 +118,32 @@ function handlecreateClick(event){
             item.appendChild(listMSs)
             list.appendChild(item)
         }
+    }else if(condi === "sub_button04"){
+        const txtInput = document.getElementById('newInput_opt')
+        const list = document.getElementById('phsOPTlist')
+
+        if((txtInput.value !== "" || txtInput.value !== null) && noContainedNew(list.children, txtInput.value)){
+            const item = document.createElement('li')
+            const listMSs = document.createElement('ul')
+            //Drag Lists-OPT
+            listMSs.id = `OPTPhaseList_${txtInput.value.replace(" ","_")}`
+            listMSs.className = "OPTPhaseList"
+            item.innerText = txtInput.value
+            item.dataset.key = txtInput.value
+            item.draggable = true
+            item.style.cursor = 'move'
+            item.className = "phaseopt"
+            //Adding the thingy that does the dingy
+            addOPTDragListeners(item)
+            item.appendChild(listMSs)
+            list.appendChild(item)
+        }
     }
 }
 
 let itemTODelete = "all"
 
+//=======================================Phase-List===================================================
 
 function addDragListeners(item){
     item.addEventListener('dragstart', handleItemDragStartDifferent)
@@ -133,8 +154,7 @@ function addDragListeners(item){
     item.addEventListener('dragleave', onItemDragLeave)
 }
 
-function createBinding(){
-    const bindingItem = document.getElementById('phaseOutput')
+function createBinding(bindingItem){
     bindingItem.value = ""
     const phaseList = document.getElementById('phslist')
     for(let item of phaseList.children){
@@ -199,11 +219,72 @@ function handleItemDropDiffrent(e){  //Very different stuff on god
                 })
                 ulList.appendChild(newItem)
                 this.appendChild(ulList)
-                createBinding()
+                createBinding(bindingItem)
                 console.log(bindingItem.value)
             }
         }
     }
     return false
 }
+
+//=======================================Phase-List-Optional===================================================
+
+function addOPTDragListeners(item){
+    item.addEventListener('dragstart', handleStartDragOPT)
+    item.addEventListener('dragover', onItemDragOver)
+    item.addEventListener('dragenter', onItemDragEnter)
+    item.addEventListener('drop', handleDropOTP)
+    item.addEventListener('dragend', )
+    item.addEventListener('dragleave', onItemDragLeave)
+}
+
+function handleStartDragOPT(e){
+    this.style.opacity = '0.4'
+    const deleteArea = document.getElementById('deletefield_phaseOPT')
+    deleteArea.style.opacity = '1'
+    this.style.fontWeight = 'bold'
+
+    dragSrcEl = this
+
+    e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/html', this.innerHTML)
+}
+
+function handleDropOTP(e){
+    e.stopPropagation()
+    if(dragSrcEl !== this){
+        if(dragSrcEl.className === "phaseopt"){
+            dragSrcEl.innerHTML = this.innerHTML
+            this.innerHTML = e.dataTransfer.getData('text/html')
+        }else{
+            const ulList = document.getElementById(`OPTPhaseList_${this.dataset.key.replace(" ", "_")}`)
+            if(noContainedUltimate("OPTPhaseList",dragSrcEl.innerHTML)) {
+                const newItem = document.createElement("li")
+                const bindingItem = document.getElementById('phaseOPTOutput')
+                newItem.innerHTML = dragSrcEl.innerHTML
+                newItem.className = "listItem"
+                newItem.style.cursor = "move"
+                newItem.draggable = true
+                newItem.addEventListener('dragstart', () => {
+                    const deleteArea = document.getElementById('deletefield_phaseOPT')
+                    deleteArea.style.opacity = '1'
+                    itemTODelete = newItem.innerText
+                })
+                //TODO: Go on here and make it so that you are able to remove also one by one scopeModule in the Phase
+                newItem.addEventListener('dragend', () => {
+                    dragSrcEl.style.opacity = '1'
+                    const deleteArea = document.getElementById('deletefield_phaseOPT')
+                    deleteArea.style.opacity = '0'
+                    itemTODelete = "all"
+                })
+                ulList.appendChild(newItem)
+                this.appendChild(ulList)
+                createBinding(bindingItem)
+                console.log(bindingItem.value)
+            }
+        }
+    }
+    return false
+}
+
 
